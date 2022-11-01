@@ -23,7 +23,7 @@ int main()
     {
 
         int modelo, AnoFab;
-        char marca[100], placa[8];
+        char marca[1000], placa[1000];
 
     } Veiculos;
 
@@ -34,14 +34,14 @@ int main()
     strcpy(Carros[0].marca, "Hyundai");
     strcpy(Carros[0].placa, "AAA-1111");
 
-    Carros[0].modelo = 2008;
-    Carros[0].AnoFab = 2007;
-    strcpy(Carros[0].marca, "Chevrolet");
-    strcpy(Carros[0].placa, "BBB-2222");
+    Carros[1].modelo = 2008;
+    Carros[1].AnoFab = 2007;
+    strcpy(Carros[1].marca, "Chevrolet");
+    strcpy(Carros[1].placa, "BBB-2222");
 
     for (int i = 0; i < 2; i++)
     {
-        printf("Marca: %d\n Modelo: %d\n Ano de Fabricacao: %s\n Placa: %s", Carros[i].marca, Carros[i].modelo, Carros[i].AnoFab, Carros[i].placa);
+        printf("\n\nMarca: %s\nModelo: %d\nAno de Fabricacao: %d\nPlaca: %s\n", Carros[i].marca, Carros[i].modelo, Carros[i].AnoFab, Carros[i].placa);
     }
     return 0;
 }
