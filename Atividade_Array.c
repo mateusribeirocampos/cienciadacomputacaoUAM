@@ -21,12 +21,10 @@ int main()
 {
     struct Veiculos
     {
-
         int modelo, AnoFab;
         char marca[1000], placa[1000];
 
     } Veiculos;
-
     struct Veiculos Carros[2];
 
     Carros[0].modelo = 2018;
