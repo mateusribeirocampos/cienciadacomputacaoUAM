@@ -1,6 +1,7 @@
 /* Armazene informações relacionadas à veículos, totalizando, no máximo, 10 veículos.
 Para cada veículo, deverão ser fornecidos os seguintes dados: 
-- Marca do veículo - modelo 
+- Marca do veículo 
+- modelo do veículo
 - Ano de fabricação 
 - Placa (formato XXX-YYYY; onde X denota as letras e Y denota os números da placa).
 
