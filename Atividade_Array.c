@@ -17,14 +17,16 @@ este deve ser inserido em ordem crescente de ano de fabricação.*/
 #include <stdlib.h>
 #include <string.h>
 
-int main()
-{
     struct Veiculos
     {
         int modelo, AnoFab;
         char marca[1000], placa[1000];
 
     } Veiculos;
+
+int main()
+{
+
     struct Veiculos Carros[2];
 
     Carros[0].modelo = 2018;
