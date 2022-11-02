@@ -19,10 +19,8 @@ este deve ser inserido em ordem crescente de ano de fabricação.*/
 
 typedef struct
 {
-    char Marca[100];
-    int Modelo;
-    int AnoFab;
-    char Placa[8];
+    int modeloCad, AnoFabCad;
+    char marcaCad[100], placaCad[100];
 
 }Veiculo;
 
@@ -35,6 +33,14 @@ void cadastrar();
 
 int main()
 {
+    int modelo[10] = {2011, 2012, 2012, 2014, 2015, 2016, 2017, 2018, 2021, 2022};
+    int AnoFab[10] = {2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2020, 2021};
+    char marca[10] = {"Mercedes", "Hyundi", "Ferrari", "Wolksvagen", "Chevrolet", "KIA", "Masserati", "BMW", "Audi", "Jeep"};
+    char placa[10] = {"AAA-0000", "BBB-1111", "CCC-2222", "DDD-3333", "EEE-4444", "FFF-5555", "GGG-6666", "HHH-7777", "III-8888", "JJJ-9999"};
+    for (int i = 0; i < 10; i++)
+    {
+        printf("\nMarca do carro: %c\nModelo do Carro: %d\nAno de fabricacao: %d\nPlaca: %c\n", marca[i], modelo[i], AnoFab[i], placa[i]);
+    }
     menu();
     return 0;
 }
@@ -69,23 +75,23 @@ void menu()
 
 void inicializar()
 {
-    strcpy(Carros.Marca, "NULL");
-    Carros.Modelo = 0;
-    Carros.AnoFab = 0;
-    strcpy(Carros.Placa, "NULL");
+    strcpy(Carros.marcaCad, "NULL");
+    Carros.modeloCad = 0;
+    Carros.AnoFabCad = 0;
+    strcpy(Carros.placaCad, "NULL");
     
 }
 
 void cadastrar()
 {
     printf("Digite a Marca do Carro: ");
-    scanf("%s", &Carros.Marca);
+    scanf("%s", &Carros.marcaCad);
     printf("Digite o Modelo do Carro: ");
-    scanf("%d", &Carros.Modelo);
+    scanf("%d", &Carros.modeloCad);
     printf("Digite o Ano de fabricacao do Carro: ");
-    scanf("%d", &Carros.AnoFab);
+    scanf("%d", &Carros.AnoFabCad);
     printf("Digite a placa do Carro: ");
-    scanf("%s", &Carros.Placa);
+    scanf("%s", &Carros.placaCad);
 }
 
 void imprimir()
