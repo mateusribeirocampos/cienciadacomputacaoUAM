@@ -80,12 +80,20 @@ void menu()
             printf("\n\n============ CADASTRO DE VEICULO ==============\n");
             printf("\nDigite o Modelo do veiculo: ");
             scanf("%100[^\n]%*c", &CarrosCad[i].modelo);
+            fflush(stdin);
+
             printf("\nDigite a marca do veiculo: ");
             scanf("%100[^\n]%*c", &CarrosCad[i].marca);
+            fflush(stdin);
+
             printf("\nDigite a placa do veiculo (AAA-1111): ");
             scanf("%10[^\n]%*c", &CarrosCad[i].placa);
+            fflush(stdin);
+
             printf("\nDigite o ano do veiculo: ");
             scanf("%d", &CarrosCad[i].ano);
+            fflush(stdin);
+            
         default:
             break;
         }
