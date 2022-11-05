@@ -17,26 +17,27 @@ este deve ser inserido em ordem crescente de ano de fabricação.*/
 #include <stdlib.h>
 #include <string.h>
 
-#define TAM 2
+#define TAM 2 // define TAM = define o tamanho das variáveis utilizada em toda fonte
 
-struct Veiculos
+struct Veiculos // Estrutura fonte com todas as variáveis utilizada na fonte
 {
-    char modelo[20];
-    char marca[20];
-    char placa[20];
-    int ano;
+    char modelo[20]; // Modelo do veículo com até 20 caracteres
+    char marca[20];  // Marca do veículo com até 20 caracteres
+    char placa[20];  // placa do veículo com até 20 caracteres
+    int ano;         // ano recebe número real
 
 } Veiculos;
 
-struct Veiculos CarrosCad[TAM];
+struct Veiculos CarrosCad[TAM]; // Estrutura veículo com o vetor CarrosCad que recebe um numero especifico de veiculo determinado
 
-void menu();
-void imprimir(struct Veiculos CarrosCad)
+void menu();                             // procedimento voide sem retorno para o menu
+void imprimir(struct Veiculos CarrosCad) // funcao imprimir para imprimir os carros cadastrados
 {
     printf("Modelo do Veiculo cadastrado:  %s\n", CarrosCad.modelo);
     printf("Marca do Veiculo cadastrado: %s\n", CarrosCad.marca);
     printf("Placa do Veiculo cadastrado: %s\n", CarrosCad.placa);
     printf("Ano do Veiculo cadastrado: %d\n", CarrosCad.ano);
+    printf("==================================\n");
 }
 
 int main()
@@ -48,7 +49,7 @@ int main()
 void menu()
 {
     int escolha;
-    int i = 0;
+    int i = 0, B_A, busca_Ano;
     do
     {
         puts("\n============ SISTEMA VEICULOS ==============\n");
@@ -66,11 +67,11 @@ void menu()
         case 1:
             if (i == 0)
             {
-                printf("========= NENHUM VEICULO CADASTRADO ===========\n");
+                printf("\n\n\n\n\n\n\n\n\n========= NENHUM VEICULO CADASTRADO ===========\n\n\n");
             }
             else
             {
-                printf("\n============ LISTA DE VEICULO ==============\n");
+                printf("\n\n\n\n\n\n\n\n============ LISTA DE VEICULO ==============\n");
                 for (int p = 0; p < i; p++)
                     imprimir(CarrosCad[p]);
             }
@@ -105,23 +106,41 @@ void menu()
 
                 for (int k = 1; k < TAM; k++)
                 {
-                    for (int d = 0; d < i - 1; d++)
+                    for (int z = 0; z < i - 1; z++)
                     {
-                        if (CarrosCad[i].ano > CarrosCad[d].ano)
+                        if (CarrosCad[i].ano > CarrosCad[z].ano)
                         {
                             int aux = CarrosCad[i].ano;
-                            CarrosCad[i].ano = CarrosCad[d].ano;
-                            CarrosCad[d].ano = aux;
+                            CarrosCad[i].ano = CarrosCad[z].ano;
+                            CarrosCad[z].ano = aux;
                         }
                     }
                 }
 
                 break;
             case 3:
-                printf(" ========== Buscar por ano de fabricacao =========");
+                printf(" ========== BUSCAR POR ANO DE FABRICACAO =========");
                 printf("\nDigite o ano de fabricacao: ");
+                scanf("%d", &busca_Ano);
+                fflush(stdin);
 
-                system("cls");
+                for (int b = 0; b < i; b++)
+                {
+                    if (busca_Ano == CarrosCad[b].ano)
+                    {
+                        printf(" ==== VEICULOS ENCONTRADOS PELA DATA INFORMADA: %d\n", busca_Ano);
+                        imprimir(CarrosCad[b]);
+                        B_A++;
+                    }
+                }
+                if (B_A == 0)
+                {
+                    printf("\n\n\n\n\n===== NENHUM VEICULO ENCONTRADO COM A DATA INFORMADA: %d =====\n\n\n\n\n\n", busca_Ano);
+                }
+                else
+                {
+                    B_A = 0;
+                }
                 break;
 
             default:
