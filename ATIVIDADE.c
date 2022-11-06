@@ -16,8 +16,11 @@ este deve ser inserido em ordem crescente de ano de fabricação.*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
+#include <ctype.h>
+#include <locale.h>
 
-#define TAM 2 // define TAM = define o tamanho das variáveis utilizada em toda fonte
+#define TAM 10 // define TAM = define o tamanho das variáveis utilizada em toda fonte
 
 struct Veiculos // Estrutura fonte com todas as variáveis utilizada na fonte
 {
@@ -33,7 +36,7 @@ struct Veiculos CarrosCad[TAM]; // Estrutura veículo com o vetor CarrosCad que 
 void menu();                             // procedimento voide sem retorno para o menu
 void imprimir(struct Veiculos CarrosCad) // funcao imprimir para imprimir os carros cadastrados
 {
-    printf("Modelo do Veiculo cadastrado:  %s\n", CarrosCad.modelo);
+    printf("Modelo do Veiculo cadastrado: %s\n", strupr(CarrosCad.modelo)); //strupr para formatar todas os modelos em letra maius
     printf("Marca do Veiculo cadastrado: %s\n", CarrosCad.marca);
     printf("Placa do Veiculo cadastrado: %s\n", CarrosCad.placa);
     printf("Ano do Veiculo cadastrado: %d\n", CarrosCad.ano);
@@ -42,14 +45,18 @@ void imprimir(struct Veiculos CarrosCad) // funcao imprimir para imprimir os car
 
 int main()
 {
+    setlocale(LC_ALL, "portuguese");
     menu();
+    system("cls");
+    exit(0);
     return 0;
 }
 
 void menu()
 {
     int escolha;
-    int i = 0, B_A, busca_Ano;
+    int i = 0, B_A, busca_Ano, retorno, correto;
+    char letra, busca_modelo[20];
     do
     {
         puts("\n============ SISTEMA VEICULOS ==============\n");
@@ -60,8 +67,18 @@ void menu()
         printf("\n4. Para buscar o(s) veiculo(s) acima do ano de fabricacao especificado: ");
         printf("\n5. Para buscar o(s) modelo(s) do(s) veiculo(s): ");
         printf("\n6. Para sair do menu: \n");
-        printf("Escolha informada: ");
-        scanf("%d", &escolha);
+        do
+        {
+            printf("\nEscolha informada: ");
+            retorno = scanf("%d", &escolha);
+            // printf("\nEscolha informada: %d", retorno);
+            do
+            {
+                letra = getchar();
+                // printf("%c", letra);
+            } while (letra != '\n');
+        } while (retorno == 0);
+        system("cls");
         switch (escolha)
         {
         case 1:
@@ -86,8 +103,8 @@ void menu()
                 puts("\n\n============ CADASTRO DE VEICULO ==============\n");
                 fflush(stdin);
                 printf("\nDigite o Modelo do veiculo: ");
-                fgets(CarrosCad[i].modelo, 20, stdin); // stdin = entrada de entrada padrao
-                fflush(stdin);                         // chamar sempre depois de uma entrada de dados para proxima nao dê problema para float e char
+                scanf("%19[^\n]s", CarrosCad[i].modelo);     // stdin = entrada de entrada padrao
+                fflush(stdin);  // chamar sempre depois de uma entrada de dados para proxima nao dê problema para float e char
 
                 printf("\nDigite a marca do veiculo: ");
                 fgets(CarrosCad[i].marca, 20, stdin);
@@ -103,51 +120,118 @@ void menu()
 
                 system("cls");
                 i++;
-
-                for (int k = 1; k < TAM; k++)
-                {
-                    for (int z = 0; z < i - 1; z++)
-                    {
-                        if (CarrosCad[i].ano > CarrosCad[z].ano)
-                        {
-                            int aux = CarrosCad[i].ano;
-                            CarrosCad[i].ano = CarrosCad[z].ano;
-                            CarrosCad[z].ano = aux;
-                        }
-                    }
-                }
-
-                break;
-            case 3:
-                printf(" ========== BUSCAR POR ANO DE FABRICACAO =========");
-                printf("\nDigite o ano de fabricacao: ");
-                scanf("%d", &busca_Ano);
-                fflush(stdin);
-
-                for (int b = 0; b < i; b++)
-                {
-                    if (busca_Ano == CarrosCad[b].ano)
-                    {
-                        printf(" ==== VEICULOS ENCONTRADOS PELA DATA INFORMADA: %d\n", busca_Ano);
-                        imprimir(CarrosCad[b]);
-                        B_A++;
-                    }
-                }
-                if (B_A == 0)
-                {
-                    printf("\n\n\n\n\n===== NENHUM VEICULO ENCONTRADO COM A DATA INFORMADA: %d =====\n\n\n\n\n\n", busca_Ano);
-                }
-                else
-                {
-                    B_A = 0;
-                }
-                break;
-
-            default:
-                break;
             }
+
+            for (int k = 0; k < i; k++)
+            {
+                // printf("\n[%d]", k++);
+                for (int z = k; z < i; z++)
+                {
+                    // printf("%d", z);
+                    if (CarrosCad[k].ano > CarrosCad[z].ano)
+                    {
+                        int aux = CarrosCad[k].ano;
+                        CarrosCad[k].ano = CarrosCad[z].ano;
+                        CarrosCad[z].ano = aux;
+                        // printf("CarroCad[K]: %i\n", CarrosCad[k].ano);
+                        // printf("CarroCad[z]: %i\n", CarrosCad[z].ano);
+                        // printf("aux: %i\n", aux);
+                    }
+                }
+            }
+            break;
+        case 3:
+            printf(" ========== BUSCAR POR ANO DE FABRICACAO =========");
+            do
+            {
+                printf("\nDigite o ano de fabricacao: ");
+                retorno = scanf("%d", &busca_Ano);
+                // printf("Data invalida: %d\n", retorno);
+                do
+                {
+                    letra = getchar();
+                    // printf("%c", letra);
+                } while (letra != '\n');
+            } while (retorno == 0);
+
+            for (int k = 0; k < i; k++)
+            {
+                if (busca_Ano == CarrosCad[k].ano)
+                {
+                    printf(" ==== VEICULOS ENCONTRADOS PELA DATA INFORMADA: %d\n", busca_Ano);
+                    imprimir(CarrosCad[k]);
+                    B_A++;
+                }
+            }
+            if (B_A == 0)
+            {
+                printf("\n\n\n\n\n===== NENHUM VEICULO ENCONTRADO COM A DATA INFORMADA: %d =====\n\n\n\n\n\n", busca_Ano);
+            }
+            else
+            {
+                B_A = 0;
+            }
+            break;
+        case 4:
+            printf(" ========== BUSCAR POR VEICULOS COM ANO DE FABRICACAO ACIMA DO ESPECIFICADO =========");
+            do
+            {
+                printf("\nDigite o ano de fabricacao: ");
+                retorno = scanf("%d", &busca_Ano);
+                // printf("Data invalida: %d\n", retorno);
+                do
+                {
+                    letra = getchar();
+                    // printf("%c", letra);
+                } while (letra != '\n');
+            } while (retorno == 0);
+
+            for (int k = 0; k < i; k++)
+            {
+                if (busca_Ano < CarrosCad[k].ano)
+                {
+                    printf(" ==== VEICULOS ENCONTRADOS ACIMA DA DATA INFORMADA: %d\n", busca_Ano);
+                    imprimir(CarrosCad[k]);
+                    B_A++;
+                }
+            }
+            if (B_A == 0)
+            {
+                printf("\n\n\n\n\n===== NENHUM VEICULO ENCONTRADO COM A DATA INFORMADA =====\n\n\n\n\n\n");
+            }
+            else
+            {
+                B_A = 0;
+            }
+            break;
+        case 5:
+            printf(" ========== BUSCAR POR MODELO DE VEICULOS =========");
+            printf("\nDigite o modelo do veiculo: ");
+            scanf("%s", busca_modelo);
+            fflush(stdin);
+
+            for (int k = 0; k < i; k++)
+            {
+                correto = strcmp(busca_modelo, CarrosCad[k].modelo);
+                if(correto == 0)
+                {
+                    //printf("\n\n\n\n\n==== MODELO DE VEICULOS ENCONTRADOS: %s\n\n\n\n\n\n", busca_modelo);
+                    imprimir(CarrosCad[k]);
+                    B_A++;
+                }
+            }
+            if (B_A == 0)
+            {
+                printf("\n\n\n\n\n===== NENHUM MODELO DE VEICULO ENCONTRADO: %s =====\n\n\n\n\n\n", busca_modelo);
+            }
+            else
+            {
+                B_A = 0;
+            }
+            break;
+        default:
+            break;
         }
     } while (escolha != 6);
-
-    exit(0);
+    system("cls");
 }
