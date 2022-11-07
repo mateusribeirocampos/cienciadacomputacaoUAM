@@ -38,7 +38,7 @@ void imprimir(struct Veiculos CarrosCad) // funcao imprimir para imprimir os car
     printf("\nModelo do Veiculo cadastrado: %s", strupr(CarrosCad.modelo)); // strupr letra maíuscula
     printf("\n\nMarca do Veiculo cadastrado: %s", strupr(CarrosCad.marca));
     printf("\nPlaca do Veiculo cadastrado: %s", strupr(CarrosCad.placa));
-    printf("\nAno do Veiculo cadastrado: %d", CarrosCad.ano);
+    printf("\n\nAno do Veiculo cadastrado: %d", CarrosCad.ano);
     printf("\n=====================================\n");
 }
 
@@ -110,7 +110,7 @@ void menu()
                 fflush(stdin);
 
                 printf("\nDigite a placa do veiculo (AAA-1111): ");
-                scanf("%9[^\n]s", CarrosCad[i].placa);
+                scanf("%8[^\n]s", CarrosCad[i].placa);
                 fflush(stdin);
 
                 printf("\nDigite o ano do veiculo: ");
@@ -147,7 +147,7 @@ void menu()
                 retorno = scanf("%d", &busca_Ano);
                 // printf("Data invalida: %d\n", retorno);
                 do
-                {
+                { //VERIFIQUE O QUE VAR LETRA ARMAZENA
                     letra = getchar(); // verificaçao sobre a digitação de apenas numero resenta quando letra for digitado
                     // printf("%c", letra);
                 } while (letra != '\n'); // abre enter para nova digitação
