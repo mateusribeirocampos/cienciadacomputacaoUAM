@@ -18,18 +18,18 @@ este deve ser inserido em ordem crescente de ano de fabricação.*/
 #include <string.h>
 #include <locale.h>
 
-#define TAM 10 // define TAM = define o tamanho das variáveis utilizada em toda fonte
+#define TAM 20 // define TAM = define o tamanho das variáveis utilizada em toda fonte
 
 struct Veiculos // Estrutura fonte com todas as variáveis utilizada na fonte
 {
-    char modelo[20]; // Modelo do veículo com até 20 caracteres
-    char marca[20];  // Marca do veículo com até 20 caracteres
-    char placa[20];  // placa do veículo com até 20 caracteres
+    char modelo[TAM]; // Modelo do veículo com até 20 caracteres
+    char marca[TAM];  // Marca do veículo com até 20 caracteres
+    char placa[9];  // placa do veículo com até 20 caracteres
     int ano;         // ano recebe número real
 
 } Veiculos;
 
-struct Veiculos CarrosCad[TAM]; // Estrutura veículo com o vetor CarrosCad que recebe um numero especifico de veiculo determinado
+struct Veiculos CarrosCad[10]; // Estrutura veículo com o vetor CarrosCad que recebe um numero especifico de veiculo determinado
 
 void menu();                             // procedimento void sem retorno para o menu
 
@@ -55,7 +55,7 @@ void menu()
 {
     int escolha;
     int i = 0, B_A, busca_Ano, retorno, correto;
-    char letra, busca_modelo[20];
+    char letra, busca_modelo[TAM];
     do
     {
         puts("\n============ SISTEMA VEICULOS ==============\n");
@@ -93,9 +93,9 @@ void menu()
             }
             break;
         case 2:
-            if (i == 15)
+            if (i == 10)
             {
-                printf("=== Valor maximo de 15 carros cadastrados ===");
+                printf("=== Valor maximo de 10 carros cadastrados ===");
             }
             else
             {
@@ -106,11 +106,11 @@ void menu()
                 fflush(stdin);                           // chamar sempre depois de uma entrada de dados para proxima nao dê problema para float e char
 
                 printf("\nDigite a marca do veiculo: ");
-                fgets(CarrosCad[i].marca, 20, stdin);
+                fgets(CarrosCad[i].marca, TAM, stdin);
                 fflush(stdin);
 
                 printf("\nDigite a placa do veiculo (AAA-1111): ");
-                fgets(CarrosCad[i].placa, 20, stdin);
+                scanf("%9[^\n]s", CarrosCad[i].placa);
                 fflush(stdin);
 
                 printf("\nDigite o ano do veiculo: ");
