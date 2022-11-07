@@ -16,8 +16,6 @@ este deve ser inserido em ordem crescente de ano de fabricação.*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
-#include <ctype.h>
 #include <locale.h>
 
 #define TAM 10 // define TAM = define o tamanho das variáveis utilizada em toda fonte
@@ -33,19 +31,20 @@ struct Veiculos // Estrutura fonte com todas as variáveis utilizada na fonte
 
 struct Veiculos CarrosCad[TAM]; // Estrutura veículo com o vetor CarrosCad que recebe um numero especifico de veiculo determinado
 
-void menu();                             // procedimento voide sem retorno para o menu
+void menu();                             // procedimento void sem retorno para o menu
+
 void imprimir(struct Veiculos CarrosCad) // funcao imprimir para imprimir os carros cadastrados
 {
-    printf("Modelo do Veiculo cadastrado: %s\n", strupr(CarrosCad.modelo)); //strupr para formatar todas os modelos em letra maius
-    printf("Marca do Veiculo cadastrado: %s\n", CarrosCad.marca);
-    printf("Placa do Veiculo cadastrado: %s\n", CarrosCad.placa);
-    printf("Ano do Veiculo cadastrado: %d\n", CarrosCad.ano);
-    printf("==================================\n");
+    printf("\nModelo do Veiculo cadastrado: %s", strupr(CarrosCad.modelo)); // strupr letra maíuscula
+    printf("\n\nMarca do Veiculo cadastrado: %s", strupr(CarrosCad.marca));
+    printf("\nPlaca do Veiculo cadastrado: %s", strupr(CarrosCad.placa));
+    printf("\nAno do Veiculo cadastrado: %d", CarrosCad.ano);
+    printf("\n=====================================\n");
 }
 
 int main()
 {
-    setlocale(LC_ALL, "portuguese");
+    setlocale(LC_ALL, "portuguese"); // não esta funcionando em meu pc
     menu();
     system("cls");
     exit(0);
@@ -100,11 +99,11 @@ void menu()
             }
             else
             {
-                puts("\n\n============ CADASTRO DE VEICULO ==============\n");
-                fflush(stdin);
+                printf("\n\n============ CADASTRO DE VEICULO ==============\n");
+                fflush(stdin); // stdin = entrada de entrada padrao e para liberar o teclado
                 printf("\nDigite o Modelo do veiculo: ");
-                scanf("%19[^\n]s", CarrosCad[i].modelo);     // stdin = entrada de entrada padrao
-                fflush(stdin);  // chamar sempre depois de uma entrada de dados para proxima nao dê problema para float e char
+                scanf("%19[^\n]s", CarrosCad[i].modelo); // numero de caracteres limitado a 19 terminado em '\0'
+                fflush(stdin);                           // chamar sempre depois de uma entrada de dados para proxima nao dê problema para float e char
 
                 printf("\nDigite a marca do veiculo: ");
                 fgets(CarrosCad[i].marca, 20, stdin);
@@ -124,10 +123,10 @@ void menu()
 
             for (int k = 0; k < i; k++)
             {
-                // printf("\n[%d]", k++);
+                // printf("\n[%d]", k++); //verifica o que imprimiu sobre passagem de k em i
                 for (int z = k; z < i; z++)
                 {
-                    // printf("%d", z);
+                    printf("=> %d", z); // informa sobre a lista em z passaando por i e k
                     if (CarrosCad[k].ano > CarrosCad[z].ano)
                     {
                         int aux = CarrosCad[k].ano;
@@ -149,9 +148,9 @@ void menu()
                 // printf("Data invalida: %d\n", retorno);
                 do
                 {
-                    letra = getchar();
+                    letra = getchar(); // verificaçao sobre a digitação de apenas numero resenta quando letra for digitado
                     // printf("%c", letra);
-                } while (letra != '\n');
+                } while (letra != '\n'); // abre enter para nova digitação
             } while (retorno == 0);
 
             for (int k = 0; k < i; k++)
@@ -205,7 +204,7 @@ void menu()
             }
             break;
         case 5:
-            printf(" ========== BUSCAR POR MODELO DE VEICULOS =========");
+            printf(" ========== BUSCAR POR MODELO DE VEICULOS ========= ");
             printf("\nDigite o modelo do veiculo: ");
             scanf("%s", busca_modelo);
             fflush(stdin);
@@ -213,9 +212,9 @@ void menu()
             for (int k = 0; k < i; k++)
             {
                 correto = strcmp(busca_modelo, CarrosCad[k].modelo);
-                if(correto == 0)
+                if (correto == 0)
                 {
-                    //printf("\n\n\n\n\n==== MODELO DE VEICULOS ENCONTRADOS: %s\n\n\n\n\n\n", busca_modelo);
+                    printf("\n\n\n\n\n===== MODELO DE VEICULOS ENCONTRADOS: %s", busca_modelo);
                     imprimir(CarrosCad[k]);
                     B_A++;
                 }
