@@ -4,7 +4,7 @@ Códigos para as atividades UAM 2022-2
 Técnicas de programação
 
 ____________________________________________________________________________________________________________________________________
-# Atividade 1 - Técnicas de programação
+# Atividade 1 - Técnicas de programação                                                                                            
 
 Em linguagens de programação estruturadas, tal como a linguagem C/C++ temos a possibilidade de organizar as informações a serem manipuladas sob dois aspectos: organização homogênea e organização heterogênea. No viés homogêneo, todas as informações, possuidoras de um único tipo de dados, estão dispostas em uma estrutura denominada vetor. E, por sua vez, no viés heterogêneo, as informações, podendo possuir tipagens distintas, estão armazenadas em estruturas de dados denominadas como “struct”.
 
@@ -32,5 +32,7 @@ O sistema deverá armazenar os veículos ordenados pelo ano de fabricação, ou 
 
 Referência DEITEL, P. J.; DEITEL, H. C: Como Programar. 6. ed. São Paulo: Pearson Prentice Hall, 2011. [Recurso eletrônico, Biblioteca Virtual Universitário.
 ____________________________________________________________________________________________________________________________________
-
+====================================================================================================================================
+------------------------------------------------------------------------------------------------------------------------------------
+# Atividade 2
 
