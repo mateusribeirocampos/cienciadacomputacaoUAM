@@ -103,7 +103,7 @@ void menu()
             {
                 printf("\n\n============ CADASTRO DE VEÍCULO ==============\n");
                 fflush(stdin); // stdin = entrada de entrada padrao e para liberar o teclado
-                printf("\nDigite o Modelo do veiculo: ");
+                printf("\nDigite o Modelo do veículo: ");
                 scanf("%19[^\n]s", CarrosCad[i].modelo); // numero de caracteres limitado a 19 terminado em '\0'
                 fflush(stdin);                           // chamar sempre depois de uma entrada de dados para proxima nao dê problema para float e char
 
@@ -213,14 +213,14 @@ void menu()
                 correto = strcmp(busca_modelo, CarrosCad[k].modelo);
                 if (correto == 0)
                 {
-                    printf("\n\n\n\n\n===== MODELO DE VEÍCULOS DO TIPO %s ENCONTRADOS", strupr(busca_modelo));
+                    printf("\n\n\n\n\n===== MODELO DE VEÍCULOS DO TIPO %s ENCONTRADOS", busca_modelo);
                     imprimir(CarrosCad[k]);
                     B_A++;
                 }
             }
             if (B_A == 0)
             {
-                printf("\n\n\n\n\n===== NENHUM MODELO DE VEÍCULO DO TIPO: %s FOI ENCONTRADO", strupr(busca_modelo));
+                printf("\n\n\n\n\n===== NENHUM MODELO DE VEÍCULO DO TIPO: %s FOI ENCONTRADO", busca_modelo);
             }
             else
             {
