@@ -205,7 +205,7 @@ void menu()
         case 5:
             printf(" ========== BUSCAR POR MODELO DE VEÍCULOS ========= ");
             printf("\nDigite o modelo do veículo: ");
-            scanf("%s", busca_modelo);
+            scanf("%s", strupr(busca_modelo)); //strupr para valor digitado = valor armazenado
             fflush(stdin);
 
             for (int k = 0; k < i; k++)
