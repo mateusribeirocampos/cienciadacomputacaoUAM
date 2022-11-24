@@ -102,7 +102,7 @@ void menu()
             else
             {
                 printf("\n\n============ CADASTRO DE VEÍCULO ==============\n");
-                fflush(stdin); // stdin = entrada de entrada padrao e para liberar o teclado
+                fflush(stdin); // stdin = entrada padrao e para liberar o teclado
                 printf("\nDigite o Modelo do veículo: ");
                 scanf("%19[^\n]s", CarrosCad[i].modelo); // numero de caracteres limitado a 19 terminado em '\0'
                 fflush(stdin);                           // chamar sempre depois de uma entrada de dados para proxima nao dê problema para float e char
