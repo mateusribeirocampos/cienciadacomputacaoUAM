@@ -76,5 +76,5 @@ Referência DEITEL, P. J.; DEITEL, H. C: Como Programar. 6. Ed. São Paulo: Pear
 
 GARCIA, F. D. Ponteiro em C: Alocação Dinâmica de Memória. Publicado em 08/01/2016. Disponível em <https://www.embarcados.com.br/ponteiro-em-c-alocacao-dinamica/>. Acesso em 05/07/2019.
 
-======================---------------------------------------------------------------------------------============================
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
