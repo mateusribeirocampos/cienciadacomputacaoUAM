@@ -33,7 +33,7 @@ O sistema deverá armazenar os veículos ordenados pelo ano de fabricação, ou 
 Referência DEITEL, P. J.; DEITEL, H. C: Como Programar. 6. ed. São Paulo: Pearson Prentice Hall, 2011. [Recurso eletrônico, Biblioteca Virtual Universitário.
 ____________________________________________________________________________________________________________________________________
 ------------------------------------------------------------------------------------------------------------------------------------
-# Atividade 3
+# Atividade 3 - Técnicas de programação
 
 Em algumas situações, para a implementação de um sistema computacional, não se conhece, previamente, qual o tamanho da massa de dados que será efetivamente manipulada. Em tais casos, pode ser usado o recurso de alocação dinâmica de memória. Com tal recurso, uma região de memória poderá ser alocada, sob demanda de modo a tornar o programa mais flexível em relação à quantidade de itens a serem manipulados. Essa flexibilidade torna o programa escalável.
 
@@ -49,21 +49,16 @@ Para a realização desta atividade, suponha a necessidade de cadastrar clientes
 campos:
 
 - nome (suponha um nome com, no máximo, 30 caracteres)
-
 - ano de nascimento
-
 - montante de gastos realizados no mês (quanto o clinte pagou em suas compras dentro do mês corrente)
 
 Para tanto, o sistema deverá oferecer as seguintes funcionalidades:
 
 - incluir um novo cliente
-
-- remover cliente - atualizar o montante de compras do cliente realizadas no mês corrente
-
+- remover cliente 
+- atualizar o montante de compras do cliente realizadas no mês corrente
 - zerar todos os montantes de compras por ocasião da virada de mês
-
 - listar o cliente melhor comprador
-
 - exibir um montante de compras de um cliente específico.
 
 O programa deverá, ainda, prever a situação que a quantidade de clientes a ser cadastrados supere a previsão inicial. Neste caso, quando o espaço de memória destinado a receber dados dos clientes estiver cheia, deve-se ampliar esse espaço - sempre em blocos de 10.
@@ -76,5 +71,5 @@ Referência DEITEL, P. J.; DEITEL, H. C: Como Programar. 6. Ed. São Paulo: Pear
 
 GARCIA, F. D. Ponteiro em C: Alocação Dinâmica de Memória. Publicado em 08/01/2016. Disponível em <https://www.embarcados.com.br/ponteiro-em-c-alocacao-dinamica/>. Acesso em 05/07/2019.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
