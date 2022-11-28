@@ -116,44 +116,22 @@ void Cadastro_Cliente()
     struct Clientes Consumidor = Obter_dados_clientes();
     ClienteIncluir[Proximo_Lista] = Consumidor;
     Proximo_Lista++;
-
-    OrdenarListaGasto();
-}
-
-void OrdenarListaGasto()
-{
-
-    for (int x = 0; x < Proximo_Lista; x++)
-    {
-        for (int y = x; y < Proximo_Lista; y++)
-        {
-            if (ClienteIncluir[x].ValorGasto < ClienteIncluir[y].ValorGasto)
-            {
-                struct Clientes aux = ClienteIncluir[x];
-                ClienteIncluir[x] = ClienteIncluir[y];
-                ClienteIncluir[y] = aux;
-            }
-        }
-    }
 }
 
 struct Clientes Obter_dados_clientes()
 {
     struct Clientes retorno;
-    struct Clientes *PtrRetorno;
-    PtrRetorno = &retorno;
-
     printf("\nDigite o Nome do cliente: ");
     fflush(stdin);
-    fgets(PtrRetorno->nome, NOME_DO_CLIENTE, stdin);
+    fgets(retorno.nome, NOME_DO_CLIENTE, stdin);
 
     printf("\nDigite o Ano de Nascimento do cliente: ");
     fflush(stdin);
-    scanf("%i", &PtrRetorno->AnoNascimento);
+    scanf("%i", &retorno.AnoNascimento);
 
     printf("\nDigite o Valor Gasto: ");
     fflush(stdin);
-    scanf("%f", &PtrRetorno->ValorGasto);
+    scanf("%f", &retorno.ValorGasto);
     LimpaTela();
 
     return retorno;
@@ -193,7 +171,7 @@ void ExcluirCliente()
         }
     }
 }
-
+// O maior problema está atualização do valor gasto devido a não soma dos valores cadastrados e atualizados.
 void AtualizarMontante()
 {
     if (Proximo_Lista == 0)
@@ -213,11 +191,11 @@ void AtualizarMontante()
         {
             printf("\nO cliente: %sGastou %.2f nesse mes.\nDigite o valor da nova compra: ", ClienteIncluir[IndiceSelecionado].nome, ClienteIncluir[IndiceSelecionado].ValorGasto);
 
-            float montante;
-            scanf("%f", montante);
+            double montante;
+            scanf("%f", &montante);
 
             // Não adiciona o valor
-            ClienteIncluir[IndiceSelecionado].ValorGasto = montante + ClienteIncluir[Proximo_Lista].ValorGasto;
+            ClienteIncluir[IndiceSelecionado].ValorGasto += montante;
         }
         else
         {
@@ -239,6 +217,26 @@ void ZerarMontante()
         for (int i = 0; i <= Proximo_Lista - 1; i++)
             ClienteIncluir[i].ValorGasto = 0;
         printf("\nMontante de gasto zerado para todos os clientes\n");
+        InteracaoVendedor();
+        LimpaTela();
+    }
+}
+/* todos esses desativados foram tentantivas de imprimir o maior comprador. A forma que consegui esta void ListarCliente() escrito abaixo dessas tentativas. Entretando, ainda ocorre erro na impressão do numero maior valor da lista de clientes cadastrados.
+void ListarCliente()
+{
+    int Quantidade_Clientes_Cadastrados = 0;
+
+    int gasto;
+
+    if (Quantidade_Clientes_Cadastrados != 0)
+    {
+        for (int i = 0; i < Proximo_Lista; i++)
+        imprimirLista(ClienteIncluir[i].ValorGasto > gasto);
+        Quantidade_Clientes_Cadastrados++;
+    }
+    else if (Quantidade_Clientes_Cadastrados == 0)
+    {
+        printf("\nNenhum cliente cadastrado. . .");
         InteracaoVendedor();
         LimpaTela();
     }
@@ -276,6 +274,102 @@ void ListarCliente(int Opcao_Selecionada)
     }
 }
 
+void ImprimirClienteMaiorValor()
+{
+    for(int i = 0; i < 2; i++)
+    printf("\nNome: %sAno de nascimento: %i, valor gasto: %.2f\n", ClienteIncluir[Proximo_Lista].nome, ClienteIncluir[Proximo_Lista].AnoNascimento, ClienteIncluir[Proximo_Lista].ValorGasto);
+    InteracaoVendedor();
+}
+
+void ListarCliente()
+{
+    int gasto, QuantidadeClientesCadastrados = 0;
+    if(Proximo_Lista > QuantidadeClientesCadastrados)
+    {
+        ImprimirClienteMaiorValor(ClienteIncluir[Proximo_Lista].ValorGasto > gasto);
+    }else if(Proximo_Lista = QuantidadeClientesCadastrados)
+    {
+        printf("Nenhum cliente cadastrado");
+        LimpaTela();
+        InteracaoVendedor();
+    }
+}
+
+void ListarCliente()
+{
+
+    if (Proximo_Lista == 0)
+    {
+        printf("\nNenhum cliente cadastrado . . .");
+        InteracaoVendedor();
+    }
+    else
+    {
+        int MaiorComprador = -1, h = -1, f = -1;
+        for (int h = 0; h <= Proximo_Lista - 1; h++)
+        {
+            if (MaiorComprador == -1)
+            {
+                MaiorComprador = h;
+            }
+            else
+            {
+                if (ClienteIncluir[h].ValorGasto > ClienteIncluir[MaiorComprador].ValorGasto)
+                {
+                    h = f;
+                    f = MaiorComprador;
+                    MaiorComprador = h;
+                }
+            }
+        }
+        if (MaiorComprador > -1)
+            printf("\nO maior comprador foi o cliente  %sGastou %.2f nesse mes", ClienteIncluir[MaiorComprador], ClienteIncluir[MaiorComprador].ValorGasto);
+        InteracaoVendedor();
+    }
+}
+*/
+void ListarCliente()
+{
+
+    if (Proximo_Lista == 0)
+    {
+        printf("\nNenhum cliente cadastrado . . .");
+        InteracaoVendedor();
+    }
+    // Aqui o lista Proximo_lista é percorrida
+    for (int i = 0; i < Proximo_Lista; i++)
+    { // verifica-se então se a condição é atendida
+        if (ClienteIncluir[i].ValorGasto > ClienteIncluir[Proximo_Lista].ValorGasto)
+            // em seguida é ordenada
+            OrdenarListaGasto();
+            // é feita a impressão do maior comprador / ERRO - A IMPRESSÃO OCORRE N VEZES E REPETE N VEZES?????????????
+        printf("\nO maior comprador foi o cliente: %sSeu gasto foi de %.2f nesse mes", ClienteIncluir[i].nome, ClienteIncluir[i].ValorGasto);
+        InteracaoVendedor();
+    }
+}
+// fiz a ordenação dessa forma para dar suporte na void ListaCliente()
+void OrdenarListaGasto()
+{
+    for (int i = 0; i < Proximo_Lista; i++)
+    {
+        for (int j = i; j < Proximo_Lista; j++)
+        {
+            if (ClienteIncluir[i].ValorGasto < ClienteIncluir[j].ValorGasto)
+            {
+                struct Clientes aux = ClienteIncluir[i];
+                ClienteIncluir[i] = ClienteIncluir[j];
+                ClienteIncluir[j] = aux;
+            }
+        }
+    }
+}
+// Impressão da consulsta do montante de compra fiz separado para não ocasionar erro e pela especificidade
+void ImprimirConsultaMontanteCompra()
+{
+    for (int i = 0; i <= Proximo_Lista - 1; i++)
+        printf("\n%i - Nome: %sAno: %i\n", i, ClienteIncluir[i].nome, ClienteIncluir[i].AnoNascimento);
+}
+
 void ConsultaMontanteCompra()
 {
     if (Proximo_Lista == 0)
@@ -287,14 +381,15 @@ void ConsultaMontanteCompra()
     else
     {
         printf("\nLista dos clientes cadastrados");
-        imprimirLista();
+        ImprimirConsultaMontanteCompra();
         printf("\nDigite o indice do cliente para verificar valor gasto no mes: ");
 
         int IndiceSelecionado = -1;
         scanf("%i", &IndiceSelecionado);
+        LimpaTela();
         if ((IndiceSelecionado >= 0) && (IndiceSelecionado <= Proximo_Lista))
         {
-            printf("\nO cliente: %sGastou %.2f nesse mes.", ClienteIncluir[IndiceSelecionado].nome, ClienteIncluir[IndiceSelecionado].ValorGasto);
+            printf("\nO cliente: %sGastou %.2f nesse mes.\n\n", ClienteIncluir[IndiceSelecionado].nome, ClienteIncluir[IndiceSelecionado].ValorGasto);
             InteracaoVendedor();
             LimpaTela();
         }
@@ -303,7 +398,6 @@ void ConsultaMontanteCompra()
             printf("\nIndice fora da lista de clientes");
             InteracaoVendedor();
             LimpaTela();
-
         }
     }
 }
@@ -326,7 +420,7 @@ void Menu(int opcao)
         ZerarMontante();
         break;
     case OPCAO_LISTAR_MELHOR_COMPRADOR:
-        ListarCliente(opcao);
+        ListarCliente();
         break;
     case OPCAO_MONTANTE_COMPRA:
         ConsultaMontanteCompra();
