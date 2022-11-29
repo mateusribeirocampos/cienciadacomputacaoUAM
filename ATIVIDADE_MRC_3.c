@@ -224,14 +224,25 @@ void ZerarMontante()
         InteracaoVendedor();
     }
     else
-    { // percorre lista de clientes
-        for (int i = 0; i <= Proximo_Lista - 1; i++)
-            // atribui valor 0 para todos os clientes
-            ClienteIncluir[i].ValorGasto = 0;
-
-        printf("\nMontante de gasto zerado para todos os clientes\n");
-        InteracaoVendedor();
-        LimpaTela();
+    {
+        char zerar;
+        printf("\nTem certeza que deseja zerar todos os valores de todos clientes?\n\nDigite 'S' para 'SIM' ou 'N' para 'NAO'\n >>> ");
+        fflush(stdin);
+        scanf("%c", &zerar);
+        zerar = toupper(zerar);
+        if (zerar == 'S')
+        {
+            for (int i = 0; i <= Proximo_Lista - 1; i++)
+                ClienteIncluir[i].ValorGasto = 0;
+            printf("\nValor de gasto zerado para todos os clientes\n");
+            InteracaoVendedor();
+            LimpaTela();
+        }
+        else if(zerar == 'N')
+        {
+            printf("\nNenhum valor foi zerado!\n");
+            InteracaoVendedor();
+        }
     }
 }
 // função para ordenar e listar o maior comprador
