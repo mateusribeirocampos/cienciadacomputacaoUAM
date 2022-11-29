@@ -48,7 +48,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
 
 #define NOME_DO_CLIENTE 30
 #define QUANTIDADE_DE_CLIENTES 10
@@ -89,7 +88,7 @@ void InteracaoVendedor()
 int Imprimir_Menu()
 {
 
-    puts("\n============================ CADASTRO DE CLIENTES ====================");
+    puts("\n============================ CADASTRO DE CLIENTES ======================");
     puts("====================================== MENU ============================");
     printf("DIGITE %i PARA CADASTRAR CLIENTE", OPCAO_CADASTRO);
     printf("\nDIGITE %i PARA REMOVER CLIENTE", OPCAO_REMOVER);
@@ -112,10 +111,10 @@ void imprimirLista()
 {
     for (int i = 0; i <= Proximo_Lista - 1; i++)
     {
-        printf("\n%i - Nome: %sAno: %i, valor Gasto: %.2f\n", i, strupr(ClienteIncluir[i].nome), ClienteIncluir[i].AnoNascimento, ClienteIncluir[i].ValorGasto);
+        printf("\n%i - Nome: %sAno de nascimento: %i, valor Gasto: %.2f\n", i, strupr(ClienteIncluir[i].nome), ClienteIncluir[i].AnoNascimento, ClienteIncluir[i].ValorGasto);
     }
 }
-
+//função para cadastro de clientes
 void Cadastro_Cliente()
 {
     if (Proximo_Lista >= TamanhoListaCliente)
@@ -128,7 +127,7 @@ void Cadastro_Cliente()
     ClienteIncluir[Proximo_Lista] = Consumidor;
     Proximo_Lista++; // armazena dos clientes
 }
-// armazenamento dos dados dos clientes
+// estrutura para armazenamento dos dados dos clientes
 struct Clientes Obter_dados_clientes()
 {
     struct Clientes retorno;
@@ -176,7 +175,7 @@ void ExcluirCliente()
         }
         else
         {
-            printf("\nIndice Fora da Lista");
+            printf("\nIndice Fora da Lista . . .\n");
             InteracaoVendedor();
             LimpaTela();
         }
@@ -192,7 +191,7 @@ void AtualizarMontante()
     }
     else
     {
-        printf("\nLista dos clientes e valores gastos cadastrados");
+        printf("\nLista dos clientes e valores gastos cadastrados\n");
         imprimirLista();
         printf("\nDigite o indice para atualizar o valor gasto pelo cliente: ");
 
@@ -211,12 +210,12 @@ void AtualizarMontante()
         }
         else
         {
-            printf("\nIndice fora da lista de clientes . . .");
+            printf("\nIndice fora da lista de clientes . . .\n");
             InteracaoVendedor();
         }
     }
 }
-
+//Função para zerar o montante do mês de todos os clientes
 void ZerarMontante()
 {
     if (Proximo_Lista == 0)
@@ -249,11 +248,11 @@ void ListarClienteMaiorComprador()
         int i = 0;
         OrdenarListaGasto();
         ClienteIncluir[i].ValorGasto > ClienteIncluir[Proximo_Lista].ValorGasto;
-        printf("\nO maior comprador foi o cliente: %sSeu gasto foi de %.2f nesse mes\n", strupr(ClienteIncluir[i].nome), ClienteIncluir[i].ValorGasto);
+        printf("\n\n\nO maior comprador foi o cliente: %sSeu gasto foi de %.2f nesse mes\n\n\n", strupr(ClienteIncluir[i].nome), ClienteIncluir[i].ValorGasto);
     }
     InteracaoVendedor();
 }
-// fiz a ordenação dessa forma para dar suporte na void ListaCliente()
+// Função para ordenar a lista de dados armazenado no vetor
 void OrdenarListaGasto()
 {
     for (int i = 0; i < Proximo_Lista; i++)
@@ -273,20 +272,20 @@ void OrdenarListaGasto()
 void ImprimirConsultaMontanteCompra()
 {
     for (int i = 0; i <= Proximo_Lista - 1; i++)
-        printf("\n%i - Nome: %sAno: %i\n", i, strupr(ClienteIncluir[i].nome), ClienteIncluir[i].AnoNascimento);
+        printf("\n%i - Nome: %sAno de nascimento: %i\n", i, strupr(ClienteIncluir[i].nome), ClienteIncluir[i].AnoNascimento);
 }
 // consulta o montante de compra dos clientes
 void ConsultaMontanteCompra()
 {
     if (Proximo_Lista == 0)
     {
-        printf("\nLista de cliente vazia . . .");
+        printf("\nLista de cliente vazia . . .\n");
         InteracaoVendedor();
         LimpaTela();
     }
     else
     {
-        printf("\nLista de clientes cadastrados");
+        printf("\nLista de clientes cadastrados\n");
         ImprimirConsultaMontanteCompra();
         printf("\nDigite o indice do cliente para verificar valor gasto no mes: ");
 
@@ -301,26 +300,28 @@ void ConsultaMontanteCompra()
         }
         else
         {
-            printf("\nIndice fora da lista de clientes . . .");
+            printf("\nIndice fora da lista de clientes . . .\n");
             InteracaoVendedor();
             LimpaTela();
         }
     }
 }
-// lista todos os clientes cadastrados função adicional.
+// Função para listar todos os clientes cadastrados - função adicional para visualizar os clientes
 void ImprimirListaClientesCadastrados()
 {
     if (Proximo_Lista == 0)
     {
-        printf("\nNenhum Cliente cadastrado . . .");
+        printf("\nNenhum Cliente cadastrado . . .\n");
     }
     else
     {
+        printf("\n===================== Clientes cadastrados no sistema ================\n");
         imprimirLista();
+        printf("\n================== Fim da lista de clientes cadastrados ==============\n");
         InteracaoVendedor();
     }
 }
-
+//Função para swith case para opção de qual função será chamada para ser executada.
 void Menu(int opcao)
 {
 
@@ -350,7 +351,7 @@ void Menu(int opcao)
     case OPCAO_SAIR:
         break;
     default:
-        printf("Opcao invalida!!!");
+        printf("Opcao invalida!!!\n");
         InteracaoVendedor();
         break;
     }
