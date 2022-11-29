@@ -81,15 +81,15 @@ void InteracaoVendedor()
 int Imprimir_Menu()
 {
 
-    puts("\n============== SISTEMA DE CADASTRO DE CLIENTES ==============");
-    puts("========================== MENU ==============================");
+    puts("\n==================== CADASTRO DE CLIENTES ==================");
+    puts("============================== MENU ==========================");
     printf("DIGITE %i. PARA CADASTRAR CLIENTE", OPCAO_CADASTRO);
-    printf("\nDIGITE %i. PARA REMOVER CLIENTE", OPCAO_REMOVER);
-    printf("\nDIGITE %i. PARA ATUALIZAR O MONTANTE DE COMPRA DO CLIENTE", OPCAO_ATUALIZAR_MONTANTE);
-    printf("\nDIGITE %i. PARA ZERAR TODO MONTANTE DE COMPRA PARA O PROXIMO MES", OPACAO_ZERAR_MONTANTE);
-    printf("\nDIGITE %i. PARA LISTAR O CLIENTE MELHOR COMPRADOR", OPCAO_LISTAR_MELHOR_COMPRADOR);
-    printf("\nDIGITE %i. PARA EXIBIR UM MONTANTE DE COMPRA DE UM CLIENTE ESPECIFICO", OPCAO_MONTANTE_COMPRA);
-    printf("\nDIGITE %i. PARA SAIR DO MENU\n", OPCAO_SAIR);
+    printf("\nDIGITE %i PARA REMOVER CLIENTE", OPCAO_REMOVER);
+    printf("\nDIGITE %i PARA ATUALIZAR O MONTANTE DE COMPRA DO CLIENTE", OPCAO_ATUALIZAR_MONTANTE);
+    printf("\nDIGITE %i PARA ZERAR TODO MONTANTE DE COMPRA PARA O PROXIMO MES", OPACAO_ZERAR_MONTANTE);
+    printf("\nDIGITE %i PARA LISTAR O CLIENTE MELHOR COMPRADOR", OPCAO_LISTAR_MELHOR_COMPRADOR);
+    printf("\nDIGITE %i PARA EXIBIR UM MONTANTE DE COMPRA DE UM CLIENTE ESPECIFICO", OPCAO_MONTANTE_COMPRA);
+    printf("\nDIGITE %i PARA SAIR DO MENU\n", OPCAO_SAIR);
 
     printf("\nDIGITE A OPCAO DESEJADA: ");
     int retorno;
@@ -191,7 +191,7 @@ void AtualizarMontante()
         {
             printf("\nO cliente: %sGastou %.2f nesse mes.\nDigite o valor da nova compra: ", ClienteIncluir[IndiceSelecionado].nome, ClienteIncluir[IndiceSelecionado].ValorGasto);
 
-            double montante;
+            float montante;
             scanf("%f", &montante);
 
             // Não adiciona o valor
@@ -336,16 +336,14 @@ void ListarCliente()
         printf("\nNenhum cliente cadastrado . . .");
         InteracaoVendedor();
     }
-    // Aqui o lista Proximo_lista é percorrida
-    for (int i = 0; i < Proximo_Lista; i++)
-    { // verifica-se então se a condição é atendida
-        if (ClienteIncluir[i].ValorGasto > ClienteIncluir[Proximo_Lista].ValorGasto)
-            // em seguida é ordenada
-            OrdenarListaGasto();
-            // é feita a impressão do maior comprador / ERRO - A IMPRESSÃO OCORRE N VEZES E REPETE N VEZES?????????????
+    else
+    {
+        int i = 0;
+        OrdenarListaGasto();
+        ClienteIncluir[i].ValorGasto > ClienteIncluir[Proximo_Lista].ValorGasto;
         printf("\nO maior comprador foi o cliente: %sSeu gasto foi de %.2f nesse mes", ClienteIncluir[i].nome, ClienteIncluir[i].ValorGasto);
-        InteracaoVendedor();
     }
+    InteracaoVendedor();
 }
 // fiz a ordenação dessa forma para dar suporte na void ListaCliente()
 void OrdenarListaGasto()
