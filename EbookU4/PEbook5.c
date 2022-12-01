@@ -14,7 +14,7 @@ int main()
     }//retorna 0 caso não seja final de arquivo
     
     carac = fgetc(arq);//coleta um caracter do arquivo
-    fscanf(arq, "%d%s", &valor, str); //coleta um inteiro e uma string do arquivo
+    fscanf(arq, "%d %s", &valor, str); //coleta um inteiro e uma string do arquivo
     printf("Valores lidos: %c %d %s. \n", carac, valor, str);
 
     fclose(arq);
