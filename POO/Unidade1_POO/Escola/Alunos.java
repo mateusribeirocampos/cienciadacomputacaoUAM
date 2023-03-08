@@ -1,4 +1,4 @@
-package Escola;
+package Unidade1_POO.Escola;
 
 public class Alunos {
     char nome;

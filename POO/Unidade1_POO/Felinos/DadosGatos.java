@@ -1,4 +1,4 @@
-package Felinos;
+package Unidade1_POO.Felinos;
 
 public class DadosGatos {
     public static void main(String[] args) {
@@ -14,20 +14,20 @@ public class DadosGatos {
         Persa.cor = "Branco";
         Persa.altura = 20;
         Persa.idade = 6;
-        Persa.personalidade = "Ativo";
+        Persa.personalidade = "Afetivo";
         Persa.raca = "Puro";
 
         Siames.cor = "Marrom";
         Siames.altura = 50;
-        Siames.idade = 6;
-        Siames.personalidade = "Ativo";
-        Siames.raca = "Puro";
+        Siames.idade = 3;
+        Siames.personalidade = "Curioso";
+        Siames.raca = "Siames + Anogora";
 
-        Ragdool.cor = "Branco";
-        Ragdool.altura = 20;
-        Ragdool.idade = 6;
-        Ragdool.personalidade = "Ativo";
-        Ragdool.raca = "Puro";
+        Ragdool.cor = "Pardo";
+        Ragdool.altura = 25;
+        Ragdool.idade = 5;
+        Ragdool.personalidade = "Teimoso";
+        Ragdool.raca = "Ragdool + Persa";
 
         /*System.out.printf("As características do gato Persa:%n"
         + "Cor: %s%n"

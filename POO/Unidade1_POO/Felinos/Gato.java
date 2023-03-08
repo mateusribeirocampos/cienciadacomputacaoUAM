@@ -1,4 +1,4 @@
-package Felinos;
+package Unidade1_POO.Felinos;
 
 public class Gato {
     String cor;
@@ -10,7 +10,7 @@ public class Gato {
 
     public void MostarCaracteristicaGato() {
 
-    System.out.println("%n%Cor: " + cor);
+    System.out.println("\nCor: " + cor);
     System.out.println("Idade: " + idade);
     System.out.println("Raça: " + raca);
     System.out.println("Personalidade: " + personalidade);
