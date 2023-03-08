@@ -3,8 +3,6 @@
 
 package Unidade1_POO;
 
-import java.io.ObjectInputStream.GetField;
-
 public class Area_triangulo {
     public static void main(String[] args) {
         int base = 15;
