@@ -1,4 +1,4 @@
-package Unidade1_POO.GetterSetter;
+package GetterSetter;
 import java.util.Scanner;
 
 public class GetterSetter {
