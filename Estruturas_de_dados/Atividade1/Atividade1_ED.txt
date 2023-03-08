@@ -1,0 +1,41 @@
+Implemente um programa para cadastro de alunos de uma disciplina utilizando a linguagem Java, seguindo os seguintes critérios: 
+1 - Criar uma estrutura heterogênea (array) do tipo string para cadastrar o nome de 25 alunos; 
+Garantir que a estrutura seja totalmente preenchida. 
+
+==
+Arquivo - Alunos.java
+=====================
+package Atividade1.Escola;
+
+import java.util.Scanner;
+
+public class Alunos {
+    public static void main(String[] args) {
+        String[] nomeAluno = new String[25];
+
+        Scanner lerNomeAlunoScanner = new Scanner(System.in);
+
+        for(int i = 0; i < nomeAluno.length; i++) {
+            System.out.print("Digite o nome do aluno " + (i + 1) + ": ");
+            nomeAluno[i] = lerNomeAlunoScanner.nextLine();
+        }
+        lerNomeAlunoScanner.close();
+
+        System.out.println("\nOs alunos cadastrados sao: ");
+        for(int i = 0; i < nomeAluno.length; i++) {
+            System.out.println((i + 1) + ". " + nomeAluno[i]);
+        }
+    }
+}
+
+===========================================================================
+Após implementar o programa e preencher o array com o nome dos alunos, cadastre mais 5 novos alunos.  
+Qual a dificuldade de inserir os novos alunos nessa estrutura de dados? Justifique a sua resposta direcionando aos conceitos de gerenciamento de memória.
+==
+O gerenciamento de memória em Java é feito de forma automática pelo garbage collector, que libera a memória alocada para objetos que não são mais utilizados pelo programa. O garbage collector é um mecanismo presente na linguagem de programação Java que gerencia a memória utilizada pelo programa. Ele é responsável por identificar e eliminar objetos que não são mais referenciados pelo programa, que não estão sendo utilizados, liberando assim espaço na memória. No entanto, em relação à estrutura heterogênea do tipo array utilizada para armazenar os nomes dos alunos, há uma limitação quanto ao seu tamanho. Isso significa que, ao criar um array com tamanho fixo, é impossível adicionar novos elementos caso o tamanho já tenha sido atingido.
+
+No caso específico descrito na questão, foi criado um programa com array de tamanho 25 para armazenar os nomes dos alunos. Portanto, caso sejam inseridos mais de 25 alunos, não haverá espaço disponível na estrutura de dados para armazená-los. Uma possível solução seria criar uma estrutura de dados com tamanho maior e copiar os elementos do array anterior para a nova estrutura.
+
+Segundo Deitel e Deitel (2016), "os arrays em Java têm tamanho fixo. É necessário saber o tamanho do array no momento de sua criação e, em geral, o tamanho do array não pode ser alterado posteriormente". Além disso, Deitel e Deitel (2016) afirmam que "caso seja necessário adicionar mais elementos a um array existente, será necessário criar um novo array com um tamanho maior e copiar os elementos do array original para o novo array".
+
+Portanto, a dificuldade de inserir novos alunos na estrutura heterogênea do tipo array utilizada no programa está relacionada à sua limitação de tamanho fixo. A solução para esse problema envolve a criação de uma nova estrutura de dados com tamanho maior e a cópia dos elementos do array anterior para a nova estrutura.
