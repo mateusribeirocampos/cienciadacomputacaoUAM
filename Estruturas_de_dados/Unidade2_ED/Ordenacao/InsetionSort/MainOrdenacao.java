@@ -1,14 +1,11 @@
-package Ordenacao;
-
-import Ordenacao.SelectionSort.Selection_sort;
+package Ordenacao.InsetionSort;
 
 public class MainOrdenacao {
     public static void main(String[] args) {
-        int numeros[] = {5, 3, 7, 10, 33};
+        int numeros[] = { 2 , 1, 4, 3 };
 
-
-        Selection_sort.sort(numeros);
-
+        Insertion_sort.InsertionSortDados(numeros);
+        
         //loop
         System.out.println("Array ordenado Selection-Sort:");
         for (int i = 0; i < numeros.length; i++) {

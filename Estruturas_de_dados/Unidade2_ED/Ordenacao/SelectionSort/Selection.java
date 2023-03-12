@@ -2,13 +2,13 @@ package Ordenacao.SelectionSort;
 
 public class Selection {
     public static void main(String[] args) {
-        int numeros[] = {5, 3, 7, 10, 33};
+        int numeros[] = {3, 2, 1};
 
 
         Selection_sort.sort(numeros);
 
         //loop
-        System.out.println("Sorted array:");
+        System.out.println("Array ordenado Selection-Sort:");
         for (int i = 0; i < numeros.length; i++) {
             System.out.print(numeros[i] + " ");
         }
