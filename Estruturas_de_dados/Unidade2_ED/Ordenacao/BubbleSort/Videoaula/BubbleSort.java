@@ -1,4 +1,4 @@
-package Ordenacao.BubbleSort;
+package Ordenacao.BubbleSort.Videoaula;
 
 public class BubbleSort {
     public static void bubble_sort(int vet[]) {
