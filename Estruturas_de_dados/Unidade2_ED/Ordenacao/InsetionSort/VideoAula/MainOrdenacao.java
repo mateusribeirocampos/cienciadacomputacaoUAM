@@ -1,4 +1,4 @@
-package Ordenacao.InsetionSort;
+package Ordenacao.InsetionSort.VideoAula;
 
 public class MainOrdenacao {
     public static void main(String[] args) {

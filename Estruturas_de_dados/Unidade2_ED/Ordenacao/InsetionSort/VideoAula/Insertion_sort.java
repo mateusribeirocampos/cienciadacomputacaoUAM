@@ -1,4 +1,4 @@
-package Ordenacao.InsetionSort;
+package Ordenacao.InsetionSort.VideoAula;
 
 class Insertion_sort {
 
