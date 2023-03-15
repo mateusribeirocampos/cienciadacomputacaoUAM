@@ -1,4 +1,4 @@
-package Ordenacao;
+package Ordenacao.QuickSort.VideoAula;
 import java.util.Arrays;
 
 public class Quick_sort {

@@ -1,4 +1,4 @@
-package Ordenacao.SelectionSort;
+package Ordenacao.SelectionSort.VideoAula;
 
 public class Selection {
     public static void main(String[] args) {

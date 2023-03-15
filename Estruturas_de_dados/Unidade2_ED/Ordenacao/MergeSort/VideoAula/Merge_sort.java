@@ -1,4 +1,4 @@
-package Ordenacao;
+package Ordenacao.MergeSort.VideoAula;
 import java.util.Arrays;
 
 public class Merge_sort {

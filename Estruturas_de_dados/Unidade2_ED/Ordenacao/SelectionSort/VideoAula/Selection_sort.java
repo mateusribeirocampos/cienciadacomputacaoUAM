@@ -1,4 +1,4 @@
-package Ordenacao.SelectionSort;
+package Ordenacao.SelectionSort.VideoAula;
 
 public class Selection_sort {
     public static void sort(int[] vet) {
