@@ -1,4 +1,4 @@
-package POO.Herança_Multipla.Loja_prod;
+package POO.Herança_Multipla.Override;
 
 public class Celular extends Produto {
     private int memoria;
@@ -8,4 +8,13 @@ public class Celular extends Produto {
         super(codigo, valor);
         this.memoria = memoria;
     }
+
+    //método
+    public int getMemoria() {
+        return this.memoria;
+    }
+
+    public void setMemoria(int memoria) {
+        this.memoria = memoria;
+    } 
 }

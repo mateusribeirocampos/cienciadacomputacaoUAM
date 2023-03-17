@@ -1,4 +1,4 @@
-package POO.Herança_Multipla.Loja_prod;
+package POO.Herança_Multipla.Override;
 
 public class Produto {
     private int codigo;
@@ -10,6 +10,22 @@ public class Produto {
         this.valor = valor;
     }
 
+    public int getCodigo() {
+        return this.codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public double getValor() {
+        return this.valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+    
     //Método
     public boolean precoCaro() {
         if(valor > 200) {

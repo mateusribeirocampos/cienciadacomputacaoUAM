@@ -1,4 +1,4 @@
-package POO.Herança_Multipla.Loja_info;
+package POO.Herança_Multipla.Metodo;
 
 public class Main {
     public static void main(String[] args) {
