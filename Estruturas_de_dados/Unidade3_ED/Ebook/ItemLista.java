@@ -7,8 +7,7 @@ class ItemLista {
     private String info;
     private ItemLista prox;
 
-    // Construtor da classe, recebe uma string como parâmetro e inicializa os
-    // atributos da classe
+    // Construtor da classe, recebe uma string como parâmetro e inicializa os atributos da classe
     public ItemLista(String info) {
         this.info = info;
         this.prox = null;
