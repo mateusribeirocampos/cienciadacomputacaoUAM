@@ -1,5 +1,5 @@
 // Criação da classe ItemLista
-package Unidade3_ED.Ebook;
+package Unidade3_ED.Ebook.ListaEbook;
 
 // Declaração da classe ItemLista
 class ItemLista {

@@ -1,4 +1,4 @@
-package Unidade3_ED.Ebook;
+package Unidade3_ED.Ebook.ListaEbook;
 
 class Lista {
     private ItemLista primeiroItem;
