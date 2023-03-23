@@ -1,10 +1,12 @@
 package Unidade4_ED.Ebook.ArvoreBinaria;
 
 public class NoFruta {
+    // Define os atributos da classe NoFruta, que serão a fruta e seus filhos à esquerda e à direita
     private Fruta fruta;
     private NoFruta frutaEsquerda;
     private NoFruta frutaDireita;
 
+    // Define os métodos getter e setter para a fruta, que permitirão acessar e modificar os dados da fruta
     public Fruta getFruta() {
         return fruta;
     }
@@ -12,6 +14,7 @@ public class NoFruta {
         this.fruta = fruta;
     }
 
+    // Define os métodos getter e setter para o filho à esquerda, que permitirão acessar e modificar os dados do nó filho à esquerda
     public NoFruta getFrutaEsquerda() {
         return frutaEsquerda;
     }
@@ -19,6 +22,7 @@ public class NoFruta {
         this.frutaEsquerda = frutaEsquerda;
     }
 
+    // Define os métodos getter e setter para o filho à direita, que permitirão acessar e modificar os dados do nó filho à direita
     public NoFruta getFrutaDireita() {
         return frutaDireita;
     }
@@ -26,6 +30,7 @@ public class NoFruta {
         this.frutaDireita = frutaDireita;
     }
 
+    // Define o método frutaVazia, que verifica se o nó atual contém uma fruta
     public boolean frutaVazia() {
         if(fruta == null){
             System.out.println(true);
@@ -34,5 +39,16 @@ public class NoFruta {
         System.out.println(false);
         return false;
     }
-    
+
+    // Define o método imprimirFruta, que imprime as informações da fruta e seus filhos à direita e à esquerda
+    public static void imprimirFruta(NoFruta noFruta) {
+        if(noFruta != null) {
+            Fruta fruta = noFruta.getFruta();
+            System.out.println("Fruta: " + fruta.getNome() + 
+            ", cor da fruta: " + fruta.getCor() + 
+            " e tipo da fruta: " + fruta.getTipo());
+            imprimirFruta(noFruta.getFrutaDireita());
+            imprimirFruta(noFruta.getFrutaEsquerda());
+        }
+    }
 }
