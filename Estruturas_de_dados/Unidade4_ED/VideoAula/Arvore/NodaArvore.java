@@ -1,4 +1,4 @@
-package Unidade4_ED.Arvore;
+package Unidade4_ED.VideoAula.Arvore;
 
 class NodaArvore {
     private String dado;

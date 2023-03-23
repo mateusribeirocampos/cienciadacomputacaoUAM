@@ -1,4 +1,4 @@
-package Unidade4_ED.Arvore;
+package Unidade4_ED.VideoAula.Arvore;
 
 public class MainNo {
     public static void main(String[] args) {

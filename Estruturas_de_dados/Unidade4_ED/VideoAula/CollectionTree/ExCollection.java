@@ -1,4 +1,4 @@
-package Unidade4_ED.CollectionTree;
+package Unidade4_ED.VideoAula.CollectionTree;
 
 import java.util.*;
 
