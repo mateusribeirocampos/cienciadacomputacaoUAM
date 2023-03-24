@@ -26,7 +26,6 @@ public class Pessoa {
     public void setDataNascimento(LocalDate date) {
         dataNascimento = date;
     }
-
     public int calcularIdade(){
         LocalDate hoje = LocalDate.now();
         Period period  = Period.between(dataNascimento, hoje);

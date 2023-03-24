@@ -34,5 +34,8 @@ public class Main {
         NoArvore.imprimirPessoasArvore(raiz); // Imprime a árvore completa
         NoArvore.imprimirPessoasArvore(filhoEsquerda); //Imprime o filho da esquerda da ávore
         NoArvore.imprimirPessoasArvore(filhoDireita); //Imprime o filho da direita da árvore
+
+        ArvoreGenealogia vaziaCheia = new ArvoreGenealogia();
+        vaziaCheia.estaVazia(raiz);
     }
 }
