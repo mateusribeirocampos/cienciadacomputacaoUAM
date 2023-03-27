@@ -98,13 +98,13 @@ public class ArvoreBinaria {
         imprimeEmOrdem(raiz);
     }
 
-    private void imprimePreOrdem(No no) {
+    /*private void imprimePreOrdem(No no) {
         if (no != null) {
             System.out.println(no.valor + " ");
             imprimePreOrdem(no.filhoEsquerda);
             imprimePreOrdem(no.filhoEsquerda);
         }
-    }
+    }*/
 
     private void imprimeSubArvore(No atual, String prefixo) {
         if (atual == null) { // Caso base: se o nó atual é nulo, não há mais nós para imprimir, então retorna
