@@ -1,4 +1,4 @@
-package unidade3_ed.Formato_Dinamico;
+package estruturas_de_dados.unidade3_ed.formato_dinamico;
 
 import java.util.Arrays;
 import java.util.List;

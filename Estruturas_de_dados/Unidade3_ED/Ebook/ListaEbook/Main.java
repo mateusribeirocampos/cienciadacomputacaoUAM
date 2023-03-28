@@ -5,7 +5,7 @@ O código, em seguida, remove o segundo item da lista usando o método remove() 
 Em seguida, ele imprime novamente o tamanho da lista e seu conteúdo após a remoção.*/
 
 // Importação da classe Lista e ItemLista do pacote Ebook
-package unidade3_ed.Ebook.ListaEbook;
+package estruturas_de_dados.unidade3_ed.ebook.listaebook;
 
 // Classe principal que contém o método main
 public class Main {

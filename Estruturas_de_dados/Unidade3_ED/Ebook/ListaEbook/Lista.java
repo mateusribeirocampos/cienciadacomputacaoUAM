@@ -1,4 +1,4 @@
-package unidade3_ed.Ebook.ListaEbook;
+package estruturas_de_dados.unidade3_ed.ebook.listaebook;
 
 class Lista {
     private ItemLista primeiroItem;

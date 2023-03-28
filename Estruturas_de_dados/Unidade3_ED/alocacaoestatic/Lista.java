@@ -1,4 +1,4 @@
-package unidade3_ed.AlocEstatic;
+package estruturas_de_dados.unidade3_ed.alocacaoestatic;
 
 public class Lista {
     // Declaração do array que irá armazenar a lista

@@ -1,3 +1,4 @@
+package estruturas_de_dados.unidade3_ed.discord;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;

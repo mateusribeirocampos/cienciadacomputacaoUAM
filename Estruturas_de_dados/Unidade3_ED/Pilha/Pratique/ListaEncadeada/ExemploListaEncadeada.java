@@ -1,4 +1,4 @@
-package unidade3_ed.Pilha.Pratique.ListaEncadeada;
+package estruturas_de_dados.unidade3_ed.pilha.Pratique.ListaEncadeada;
 
 import java.util.ArrayList;
 import java.util.Collections;

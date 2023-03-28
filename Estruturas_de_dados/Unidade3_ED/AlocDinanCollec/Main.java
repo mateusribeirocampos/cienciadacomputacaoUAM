@@ -1,4 +1,4 @@
-package unidade3_ed.AlocDinanCollec;
+package estruturas_de_dados.unidade3_ed.alocdinancollec;
 
 public class Main {
     public static void main(String[] args) {

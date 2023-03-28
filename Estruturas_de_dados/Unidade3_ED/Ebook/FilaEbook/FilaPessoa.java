@@ -1,4 +1,4 @@
-package unidade3_ed.Ebook.FilaEbook;
+package estruturas_de_dados.unidade3_ed.ebook.filaebook;
 
 public class FilaPessoa {
     private Pessoa primeiraDaFila;

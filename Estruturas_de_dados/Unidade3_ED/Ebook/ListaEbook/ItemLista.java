@@ -1,5 +1,5 @@
 // Criação da classe ItemLista
-package unidade3_ed.Ebook.ListaEbook;
+package estruturas_de_dados.unidade3_ed.ebook.listaebook;
 
 // Declaração da classe ItemLista
 class ItemLista {

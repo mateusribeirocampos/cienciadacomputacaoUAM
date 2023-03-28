@@ -1,4 +1,4 @@
-package unidade3_ed.Pilha;
+package estruturas_de_dados.unidade3_ed.pilha;
 
 import java.util.Random;
 import java.util.Stack;
