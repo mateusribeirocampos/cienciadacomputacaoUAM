@@ -1,4 +1,4 @@
-package POO.ClasseAbstrataHeranca;
+package poo.classeabstrataheranca;
 
 public abstract class Cliente { //abstrata proibi que essa classe seja instanciada em código
     private String nome;

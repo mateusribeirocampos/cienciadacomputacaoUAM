@@ -1,4 +1,4 @@
-package POO.Polimorfismo.Sobreposicao;
+package poo.polimorfismo.sobreposicao;
 
 public class Forno extends Equipamento {
     

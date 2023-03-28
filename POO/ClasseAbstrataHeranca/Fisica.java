@@ -1,4 +1,4 @@
-package POO.ClasseAbstrataHeranca;
+package poo.classeabstrataheranca;
 
 public class Fisica extends Cliente {
     

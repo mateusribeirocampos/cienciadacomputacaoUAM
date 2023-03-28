@@ -1,4 +1,4 @@
-package POO.Herança_Multipla.Metodo;
+package poo.herança_multipla.Metodo;
 
 public class Desktop extends Computador {
     //Atributos exlusivos da classe Desktop

@@ -1,4 +1,4 @@
-package POO.Herança_Multipla.Override;
+package poo.herança_multipla.Override;
 
 public class Produto {
     private int codigo;

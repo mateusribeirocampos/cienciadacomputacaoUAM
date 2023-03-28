@@ -1,4 +1,4 @@
-package POO.Herança_Multipla.Escola;
+package poo.herança_multipla.Escola;
 
 public class Professor extends Funcionario {
     private String disciplina;

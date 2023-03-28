@@ -6,7 +6,7 @@ JButton: É uma classe que representa um componente de interface gráfica de usu
 
 Todos esses componentes fazem parte do conjunto de classes e interfaces fornecidos pela biblioteca gráfica Swing do Java para criação de interfaces gráficas de usuário (GUIs). */
 
-package POO.APP;
+package poo.app;
 
 import javax.swing.*;
 import java.awt.*;

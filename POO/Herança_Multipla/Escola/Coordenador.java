@@ -1,4 +1,4 @@
-package POO.Herança_Multipla.Escola;
+package poo.herança_multipla.Escola;
 
 public class Coordenador extends Funcionario {
     private String curso_vinculado;
