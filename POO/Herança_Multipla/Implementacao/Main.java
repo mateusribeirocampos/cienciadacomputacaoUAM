@@ -1,4 +1,4 @@
-package poo.herança_multipla.Implementacao;
+package poo.herança_multipla.implementacao;
 //import java.util.Arrays;
 
 public class Main {

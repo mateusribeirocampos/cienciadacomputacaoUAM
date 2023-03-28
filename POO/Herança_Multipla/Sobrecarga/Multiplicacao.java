@@ -1,4 +1,4 @@
-package poo.herança_multipla.Sobrecarga;
+package poo.herança_multipla.sobrecarga;
 
 public class Multiplicacao {
     private int num1, num2;

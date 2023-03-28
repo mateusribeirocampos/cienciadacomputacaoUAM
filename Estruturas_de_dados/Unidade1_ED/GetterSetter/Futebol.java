@@ -1,4 +1,4 @@
-package GetterSetter;
+package unidade1_ed.gettersetter;
 
 public class Futebol {
     private String nomeTime;

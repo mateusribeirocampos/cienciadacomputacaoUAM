@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.Storage;
+package unidade4_ed.ebook.storage;
 
 public class Main {
     public static void main(String[] args) {

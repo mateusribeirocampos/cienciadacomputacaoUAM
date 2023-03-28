@@ -1,4 +1,4 @@
-package Vetores.CriandoVetor;
+package unidade1_ed.vetores.criandovetor;
 
 public class CriaVetor {
     public static void main(String[] args) {

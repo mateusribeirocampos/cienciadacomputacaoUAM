@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.ArvoreBinaria;
+package unidade4_ed.ebook.arvorebinaria;
 
 public class NoFruta {
     // Define os atributos da classe NoFruta, que serão a fruta e seus filhos à esquerda e à direita

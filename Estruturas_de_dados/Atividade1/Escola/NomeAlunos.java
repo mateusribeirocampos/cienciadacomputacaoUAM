@@ -1,4 +1,4 @@
-package Atividade1.Escola;
+package atividade1.escola;
 
 public class NomeAlunos {
     public static void main(String[] args) {

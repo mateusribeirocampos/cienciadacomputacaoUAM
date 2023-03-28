@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.InsercaoArvore;
+package unidade4_ed.ebook.insercaoarvore;
 
 public class InsercaoNode {
     public Node adicionaNode(Node atual, String valor) {

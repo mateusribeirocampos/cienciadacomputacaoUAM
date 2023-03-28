@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.Storage;
+package unidade4_ed.ebook.storage;
 
 public class NoArvoreBinario {
     private String informacao; //informação armazenada no nó

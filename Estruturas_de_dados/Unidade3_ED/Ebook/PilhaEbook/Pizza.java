@@ -1,4 +1,4 @@
-package Unidade3_ED.Ebook.PilhaEbook;
+package unidade3_ed.Ebook.PilhaEbook;
 
 public class Pizza {
     private String nomeDestinatario;

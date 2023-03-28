@@ -1,4 +1,4 @@
-package Unidade4_ED.VideoAula.Arvore;
+package unidade4_ed.videoaula.Arvore;
 
 public class ExArvore {
     public static void imprimir(NodaArvore aux) {

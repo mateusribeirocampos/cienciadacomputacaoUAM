@@ -1,4 +1,4 @@
-package Atividade1.Escola1; //Declaração do pacote em que a classe está
+package atividade1.escola1; //Declaração do pacote em que a classe está
 import java.util.ArrayList; //Importação da classe ArrayList
 import java.util.Scanner; //Importação da classe Scanner
 

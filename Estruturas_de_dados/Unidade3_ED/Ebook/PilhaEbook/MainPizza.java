@@ -1,4 +1,4 @@
-package Unidade3_ED.Ebook.PilhaEbook;
+package unidade3_ed.Ebook.PilhaEbook;
 
 public class MainPizza {
     public static void main(String[] args) {

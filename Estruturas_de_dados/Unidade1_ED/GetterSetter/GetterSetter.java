@@ -1,4 +1,4 @@
-package GetterSetter;
+package unidade1_ed.gettersetter;
 import java.util.Scanner;
 
 public class GetterSetter {

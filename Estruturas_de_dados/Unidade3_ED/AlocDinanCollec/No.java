@@ -4,7 +4,7 @@
 // Os métodos setValor e getValor são usados para manipular o valor armazenado no nó.
 // Os métodos setProximo e getProximo são usados para manipular a referência para o próximo nó.
 
-package Unidade3_ED.AlocDinanCollec;
+package unidade3_ed.AlocDinanCollec;
 
 // Definição da classe No
 public class No {

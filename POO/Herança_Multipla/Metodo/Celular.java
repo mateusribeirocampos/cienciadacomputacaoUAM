@@ -1,4 +1,4 @@
-package poo.herança_multipla.Metodo;
+package poo.herança_multipla.metodo;
 
 public class Celular extends Computador {
     //Atributos exclusivos da classe Celular

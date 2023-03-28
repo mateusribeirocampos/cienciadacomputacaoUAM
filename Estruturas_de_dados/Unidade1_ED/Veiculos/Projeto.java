@@ -1,4 +1,4 @@
-package Veiculos;
+package unidade1_ed.veiculos;
 
 public class Projeto {
     public static void main(String[] args) {

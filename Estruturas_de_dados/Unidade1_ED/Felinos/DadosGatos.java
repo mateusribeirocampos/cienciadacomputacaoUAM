@@ -1,4 +1,4 @@
-package Felinos;
+package unidade1_ed.felinos;
 
 public class DadosGatos {
     public static void main(String[] args) {

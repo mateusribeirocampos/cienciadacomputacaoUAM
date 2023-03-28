@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.InsercaoArvore;
+package unidade4_ed.ebook.insercaoarvore;
 
 import java.util.Arrays;
 import java.util.*;

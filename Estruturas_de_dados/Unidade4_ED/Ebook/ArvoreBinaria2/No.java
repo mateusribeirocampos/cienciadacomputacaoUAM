@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.ArvoreBinaria2;
+package unidade4_ed.ebook.arvorebinaria2;
 
 class No {
     char valor;

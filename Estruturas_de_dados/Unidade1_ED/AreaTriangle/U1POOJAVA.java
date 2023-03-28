@@ -1,4 +1,4 @@
-package AreaTriangle;
+package areatriangle;
 public class U1POOJAVA {
     public static void main(String[] args) {
         //tipos abstratos de dados

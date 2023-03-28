@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.ArvoreBinaria;
+package unidade4_ed.ebook.arvorebinaria;
 
 public class MainFruta {
     public static void main(String[] args) {

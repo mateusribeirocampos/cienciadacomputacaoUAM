@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.InsercaoArvore;
+package unidade4_ed.ebook.insercaoarvore;
 
 public class Node {
     public String valor;

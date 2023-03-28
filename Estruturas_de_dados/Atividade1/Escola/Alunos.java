@@ -1,4 +1,4 @@
-package Atividade1.Escola; //Declaração do pacote em que a classe está
+package atividade1.escola; //Declaração do pacote em que a classe está
 import java.util.Scanner; // importação da biblioteca do Java para leitura de dados do usuário
 
 public class Alunos { 

@@ -1,4 +1,4 @@
-package Unidade3_ED.Pilha.Pratique.ListaEncadeada;
+package unidade3_ed.Pilha.Pratique.ListaEncadeada;
 
 import java.util.ArrayList;
 import java.util.Collections;

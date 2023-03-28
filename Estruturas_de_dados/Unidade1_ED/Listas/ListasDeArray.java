@@ -1,4 +1,4 @@
-package Listas;
+package unidade1_ed.listas;
 
 public class ListasDeArray {
     public static void main(String[] args) {

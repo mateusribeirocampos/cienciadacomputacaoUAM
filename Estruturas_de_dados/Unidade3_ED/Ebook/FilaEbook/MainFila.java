@@ -1,4 +1,4 @@
-package Unidade3_ED.Ebook.FilaEbook;
+package unidade3_ed.Ebook.FilaEbook;
 
 public class MainFila {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package poo.herança_multipla.Override;
+package poo.herança_multipla.override;
 
 public class Celular extends Produto {
     private int memoria;

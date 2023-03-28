@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.Genealogia;
+package unidade4_ed.ebook.genealogia;
 
 class ArvoreGenealogia {
     private NoArvore node;

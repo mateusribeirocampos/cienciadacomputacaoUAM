@@ -1,4 +1,4 @@
-package poo.herança_multipla.Metodo;
+package poo.herança_multipla.metodo;
 
 public class Computador {
     //Atributos da classe mãe

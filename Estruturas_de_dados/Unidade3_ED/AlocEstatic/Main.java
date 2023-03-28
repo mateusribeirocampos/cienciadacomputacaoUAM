@@ -1,5 +1,5 @@
 // Define o pacote onde esta classe Main está localizada
-package Unidade3_ED.AlocEstatic;
+package unidade3_ed.AlocEstatic;
 
 // Definição da classe Main
 public class Main {

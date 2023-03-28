@@ -1,4 +1,4 @@
-package Vetores;
+package unidade1_ed.vetores;
 
 public class UsoVetor {
     public static void main(String[] args) {

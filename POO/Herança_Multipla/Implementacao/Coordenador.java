@@ -1,4 +1,4 @@
-package poo.herança_multipla.Implementacao;
+package poo.herança_multipla.implementacao;
 
 public class Coordenador extends Empregado {
     private String curso;

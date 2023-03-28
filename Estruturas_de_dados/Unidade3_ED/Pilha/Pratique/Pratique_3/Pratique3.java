@@ -1,4 +1,4 @@
-package Unidade3_ED.Pilha.Pratique.Pratique_3;
+package unidade3_ed.Pilha.Pratique.Pratique_3;
 
 import java.util.Stack;  // Importa a classe Stack da biblioteca padrão do Java
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package String;
+package unidade1_ed.string;
 
 public class CharArt {
     static String valor = "MATEUS - JAVA";

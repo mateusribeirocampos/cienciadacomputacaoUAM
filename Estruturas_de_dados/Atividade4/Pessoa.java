@@ -1,4 +1,4 @@
-package Atividade4;
+package atividade4;
 
 class Pessoa {
     // Declaração das variáveis privadas da classe Pessoa

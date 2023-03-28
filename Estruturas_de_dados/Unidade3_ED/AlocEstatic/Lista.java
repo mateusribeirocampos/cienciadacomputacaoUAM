@@ -1,4 +1,4 @@
-package Unidade3_ED.AlocEstatic;
+package unidade3_ed.AlocEstatic;
 
 public class Lista {
     // Declaração do array que irá armazenar a lista

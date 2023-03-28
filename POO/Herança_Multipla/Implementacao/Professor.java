@@ -1,4 +1,4 @@
-package poo.herança_multipla.Implementacao;
+package poo.herança_multipla.implementacao;
 
 public class Professor extends Empregado {
     private String disciplina;

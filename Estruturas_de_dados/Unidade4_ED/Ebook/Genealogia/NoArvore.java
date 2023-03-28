@@ -1,4 +1,4 @@
-package Unidade4_ED.Ebook.Genealogia;
+package unidade4_ed.ebook.genealogia;
 
 public class NoArvore {
     private Pessoa pessoa; //informação armazenada no nó

@@ -1,4 +1,4 @@
-package Veiculos;
+package unidade1_ed.veiculos;
 import java.sql.Date;
 
 public class Automovel {

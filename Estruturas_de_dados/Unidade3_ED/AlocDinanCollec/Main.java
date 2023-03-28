@@ -1,4 +1,4 @@
-package Unidade3_ED.AlocDinanCollec;
+package unidade3_ed.AlocDinanCollec;
 
 public class Main {
     public static void main(String[] args) {

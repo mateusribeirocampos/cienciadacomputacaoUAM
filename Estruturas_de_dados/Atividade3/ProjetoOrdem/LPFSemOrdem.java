@@ -11,7 +11,7 @@ Passo 6: Exiba todos os números que foram inseridos na fila.
  
 Analise a ordem dos números exibidos e verifique se estão na mesma forma que foram inseridos. Se a exibição foi diferente, justifique o ocorrido. 
 ******************************************************************************************************************************/
-package Atividade3.ProjetoOrdem;
+package atividade3.projetoordem;
 
 import java.util.LinkedList;
 import java.util.Queue;

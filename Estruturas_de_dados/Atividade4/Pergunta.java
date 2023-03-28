@@ -1,4 +1,4 @@
-package Atividade4;
+package atividade4;
 
 public class Pergunta {
     private String Resposta1;

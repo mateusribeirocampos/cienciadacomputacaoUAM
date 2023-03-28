@@ -1,4 +1,4 @@
-package Vetores.Matriz;
+package unidade1_ed.vetores.matriz;
 
 public class UsoMatriz {
     public static void main(String[] args) {
