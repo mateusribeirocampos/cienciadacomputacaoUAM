@@ -9,6 +9,10 @@ public class Lanchonete {
     public List<Comida> comidas = new ArrayList<>();
     private int qtdPessoas;
 
+    public int getQtdPessoas() {
+        return qtdPessoas;
+    }
+
     public double calcularConta(int pessoas, double valor) {
         return valor / pessoas;
     }
@@ -30,11 +34,13 @@ public class Lanchonete {
             while (!leitor.hasNextInt()) {
                 System.out.println("Por favor, informe um valor inteiro válido.");
                 leitor.next(); // read the non-integer value so the loop can continue
+                leitor.close();
             }
             int qtdPessoas = leitor.nextInt();
             if (qtdPessoas <= 0) {
                 throw new ArithmeticException("Quantidade de pessoas não pode ser igual a 0");
             }
+                    leitor.close();
             double total = calcularConta(qtdPessoas, mesa.getValor());
             System.out.println("Mesa: " + mesa.getNumero() + " Total a pagar cada pessoa: R$ " + total);
         } catch (ArithmeticException e) {
@@ -44,5 +50,6 @@ public class Lanchonete {
         } finally {
             System.out.println("Mesa: " + mesa.getNumero() + " Total a pagar: R$ " + mesa.getValor());
         }
+
     }
 }
