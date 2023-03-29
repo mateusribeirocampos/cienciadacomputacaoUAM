@@ -20,6 +20,7 @@ public class Comida {
         this.dataFabricacao = data;
         this.diasValidade  = dias;
     }
+    
     //Método para verificar se a comida está vencida
     public boolean estaVencida() throws ComidaVencidaException {
         Date dataAtual = calendar.getTime();
@@ -33,31 +34,33 @@ public class Comida {
         }
     }
     //Getter e setter
+    public String getNome() {
+        return nome;
+    }
     public void setNome(String nome) {
         this.nome = nome;
     }
-
     public double getValor() {
         return valor;
     }
-    
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
     public Date getDataFabricacao() {
         return dataFabricacao;
     }
-    
+    public void setDataFabricacao(Date data) {
+        this.dataFabricacao = data;
+    }
     public int getDiasValidade() {
         return diasValidade;
     }
-    
-    public void imprimir() {
-        System.out.println("Produto: " + getNome() + "Valor: " + getValor());
+    public void setDiasValidade(int dias) {
+        this.diasValidade = dias;
     }
-
-    public String getNome() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }    
+    
+    @Override
+    public String toString() {
+        return "Produto: " + getNome() + " | Valor: " + getValor() + " | Data de validade: " + getDataFabricacao() + " | Dias de validade: " + getDiasValidade();
+    }
 }
