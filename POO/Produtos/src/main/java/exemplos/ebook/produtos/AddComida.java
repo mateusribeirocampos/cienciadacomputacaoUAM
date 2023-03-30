@@ -4,6 +4,9 @@
  */
 package exemplos.ebook.produtos;
 
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mateus Campos
@@ -73,15 +76,15 @@ public class AddComida extends javax.swing.JFrame {
                     .addGroup(panelDadosProdutosLayout.createSequentialGroup()
                         .addComponent(DiasValidade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFieldDiasValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textFieldDiasValidade, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelDadosProdutosLayout.createSequentialGroup()
                         .addComponent(Nome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelDadosProdutosLayout.createSequentialGroup()
                         .addComponent(Valor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(16, 16, 16))
         );
         panelDadosProdutosLayout.setVerticalGroup(
@@ -105,14 +108,29 @@ public class AddComida extends javax.swing.JFrame {
         Salvar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Salvar.setText("Salvar");
         Salvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalvarActionPerformed(evt);
+            }
+        });
 
         Limpar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Limpar.setText("Limpar");
         Limpar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimparActionPerformed(evt);
+            }
+        });
 
         Cancelar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Cancelar.setText("Cancelar");
         Cancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,6 +164,34 @@ public class AddComida extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
+        // TODO add your handling code here:
+        try {
+            String nome = textFieldNome.getText(); //Pegando o texto referente ao nome da comida
+            double valor = Double.parseDouble(textFieldValor.getText()); //Pegando o texto referente ao valor
+            int data = Integer.parseInt(textFieldDiasValidade.getText()); //Pegando a data referente aos dias
+            Comida comida = new Comida(nome, valor, new Date(), data);
+            JOptionPane.showMessageDialog(null, "Comida adicionada com sucesso", "Adicionar comida", 1);            
+        } catch (java.lang.NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Não foi possível adicionar comida, verifique os valores digitados", "Adicionar comida", 0);
+        }
+        this.dispose();
+    }//GEN-LAST:event_SalvarActionPerformed
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        // TODO add your handling code here:
+        //botão fechar
+        this.dispose();
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private void LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparActionPerformed
+        // TODO add your handling code here:
+        //botão limpar
+        textFieldNome.setText("");
+        textFieldValor.setText("");
+        textFieldDiasValidade.setText("");
+    }//GEN-LAST:event_LimparActionPerformed
 
     /**
      * @param args the command line arguments

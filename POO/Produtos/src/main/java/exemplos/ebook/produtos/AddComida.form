@@ -193,6 +193,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalvarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Limpar">
       <Properties>
@@ -206,6 +209,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LimparActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Cancelar">
       <Properties>
@@ -219,6 +225,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
