@@ -6,6 +6,7 @@ package exemplos.ebook.produtos;
 
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -13,11 +14,22 @@ import javax.swing.JOptionPane;
  */
 public class AddComida extends javax.swing.JFrame {
 
+    public Comida comida;
+
     /**
      * Creates new form AddComida
      */
     public AddComida() {
         initComponents();
+    }
+
+    AddComida(boolean rootPaneCheckingEnabled) {
+        initComponents();
+        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
+    }
+
+    AddComida(JTable mainTable) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -108,6 +120,11 @@ public class AddComida extends javax.swing.JFrame {
         Salvar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         Salvar.setText("Salvar");
         Salvar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Salvar.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                SalvarComponentMoved(evt);
+            }
+        });
         Salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalvarActionPerformed(evt);
@@ -168,15 +185,16 @@ public class AddComida extends javax.swing.JFrame {
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
         // TODO add your handling code here:
         try {
-            String nome = textFieldNome.getText(); //Pegando o texto referente ao nome da comida
-            double valor = Double.parseDouble(textFieldValor.getText()); //Pegando o texto referente ao valor
-            int data = Integer.parseInt(textFieldDiasValidade.getText()); //Pegando a data referente aos dias
-            Comida comida = new Comida(nome, valor, new Date(), data);
-            JOptionPane.showMessageDialog(null, "Comida adicionada com sucesso", "Adicionar comida", 1);            
+            String nome = textFieldNome.getText(); //Pegar o texto referente ao nome da comida
+            double valor = Double.parseDouble(textFieldValor.getText()); //Pegar o texto referente ao valor
+            int data = Integer.parseInt(textFieldDiasValidade.getText()); //Pegar a data referente aos dias
+            this.comida = new Comida(nome, valor, new Date(), data);
+            JOptionPane.showMessageDialog(null, "Comida adicionada com sucesso", "Adicionar comida", 1);
         } catch (java.lang.NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Não foi possível adicionar comida, verifique os valores digitados", "Adicionar comida", 0);
         }
         this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_SalvarActionPerformed
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
@@ -192,6 +210,10 @@ public class AddComida extends javax.swing.JFrame {
         textFieldValor.setText("");
         textFieldDiasValidade.setText("");
     }//GEN-LAST:event_LimparActionPerformed
+
+    private void SalvarComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_SalvarComponentMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SalvarComponentMoved
 
     /**
      * @param args the command line arguments
