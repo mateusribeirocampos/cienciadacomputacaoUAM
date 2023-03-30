@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package exemplos.ebook.implementacao2;
 
 import java.util.Calendar;
@@ -27,12 +23,13 @@ public class Comida {
         calendar.setTime(this.dataFabricacao);
         calendar.add(Calendar.DAY_OF_MONTH, diasValidade);
         Date dataProdutoComValidade = calendar.getTime();
-        if(dataProdutoComValidade.after(dataAtual)) {
-            return false;
-        } else {
+        if(dataAtual.after(dataProdutoComValidade)) {
             throw new ComidaVencidaException();
+        } else {
+            return false;
         }
     }
+    
     //Getter e setter
     public String getNome() {
         return nome;
