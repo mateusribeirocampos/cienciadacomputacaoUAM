@@ -4,26 +4,44 @@
  */
 package exemplos.ebook.produtos;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Mateus Campos
+ * Classe principal que contém a tabela e métodos para adicionar itens à tabela
+ * e abrir a janela para adicionar novos itens.
  */
 public class Principal extends javax.swing.JFrame {
 
     public DefaultTableModel tableModel;
-    //private JTable mainTable;
+    public List<Comida> listaComidas = new ArrayList<>();
 
     /**
-     * Creates new form Principal
+     * Cria a tela principal e inicializa os componentes.
      */
     public Principal() {
         initComponents();
+        //Centraliza a tela no meio da tela do usuário
         this.setLocationRelativeTo(null);
+        //Obtém o modelo da table para poder adicionar novos itens
         tableModel = (DefaultTableModel) jTable1.getModel();
+        //Cria uma lista vazia para armazenar os itens adicionados
+        listaComidas = new ArrayList<>();
+        //Cria uma janela para adicionar novos itens, passando a tabela e a lista como parâmetros 
+        AddComida addComida = new AddComida(jTable1, listaComidas);
+        setVisible(true);
+    }
+    /**
+     * Adiciona uma nova comida à tabela e à lista de comidas.
+     * 
+     * @param comida a comida a ser adicionada
+     */
+    public void adicionarComida(Comida comida) {
+        //Adiciona uma nova linha na tabela com os dados da comida
+        tableModel.addRow(new Object[]{comida.getNome(), comida.getValor(), comida.getDataFabricacao(), comida.getDiasValidade()});
+        listaComidas.add(comida);
     }
 
     /**
@@ -47,6 +65,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -125,31 +144,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        /* create an instance of AddComida and pass mainTable to its constructor
-        AddComida addComida = new AddComida(mainTable);
-        addComida.setVisible(true);
-
-        try {
-            // retrieve the Comida object from the dialog
-            Comida comida = addComida.comida;
-
-            // check if the food is expired
-            comida.estaVencida();
-
-            // add the food to the table model
-            DefaultTableModel tableModel = (DefaultTableModel) mainTable.getModel();
-            tableModel.addRow(new Object[]{comida.getNome(), comida.getValor(), comida.getDataFabricacao(), comida.getDiasValidade()});
-        } catch (java.lang.NullPointerException e) {
-            // do nothing if the user clicked cancel
-        } catch (ComidaVencidaException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Comida Vencida", 0);
-        }*/
         AddComida adicionarJDialog = new AddComida(this.rootPaneCheckingEnabled);
         adicionarJDialog.setVisible(true);
         try {
             Comida comida = adicionarJDialog.comida;
             comida.estaVencida();
             tableModel.addRow(new Object[]{comida.getNome(), comida.getValor(), comida.getDataFabricacao(), comida.getDiasValidade()});
+            tableModel.fireTableDataChanged();
         } catch (java.lang.NullPointerException e) {
         } catch (ComidaVencidaException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Comida Vencida", 0);
@@ -198,4 +199,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
 }

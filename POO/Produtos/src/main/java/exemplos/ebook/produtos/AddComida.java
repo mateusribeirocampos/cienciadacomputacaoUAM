@@ -4,9 +4,12 @@
  */
 package exemplos.ebook.produtos;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,22 +17,47 @@ import javax.swing.JTable;
  */
 public class AddComida extends javax.swing.JFrame {
 
-    public Comida comida;
+    private javax.swing.JTable jTableComidas; // Tabela onde serão exibidas as comidas 
+    public Comida comida; // Comida que está sendo adicionado/editada
+    private Principal principal; //Referência à janela principal
+    private List<Comida> listaComidas; // Lista de comidas que será exibida na tela
 
-    /**
-     * Creates new form AddComida
-     */
+    // Cria a tela principal e inicializa os componentes
     public AddComida() {
-        initComponents();
+        initComponents(); // inicializa os componentes da tela
+        //Centraliza a tela no meio da tela do usuário
+        this.setLocationRelativeTo(null);
+        this.listaComidas = new ArrayList<>(); // Inicializa a lista de comidas vazia
     }
 
     AddComida(boolean rootPaneCheckingEnabled) {
+        this.listaComidas = new ArrayList<>(); // Inicializa a lista de comida vazia
         initComponents();
-        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
+        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled; //é uma linha de código que atribui o valor do parâmetro rootPaneCheckingEnabled à variável rootPaneCheckingEnabled do objeto atual (this)
     }
 
     AddComida(JTable mainTable) {
+        this.listaComidas = new ArrayList<>();
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    //contrutor
+    public AddComida(Principal principal) {
+        this.listaComidas = new ArrayList<>();
+        initComponents();// Inicializa os componentes da tela
+        this.principal = principal; // Inicializa os componentes da tela
+        atualizarTabelaComidas(); // Atualiza a tabela de comidas na tela
+    }
+
+    public void adicionarComida(Comida comida) {
+        listaComidas.add(comida); // Adiciona a comida na lista
+        atualizarTabelaComidas(); // Atualiza a tabela de comidas na tela
+    }
+
+    public AddComida(JTable tabelaComidas, List<Comida> listaComida) {
+        this.listaComidas = listaComida; // Incializa a lista de comidas com a lista passada como parâmetro 
+        this.jTableComidas = tabelaComidas;// Inicializa a tabela com a tabela passada como parâmetro
+        initComponents();
     }
 
     /**
@@ -185,17 +213,35 @@ public class AddComida extends javax.swing.JFrame {
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
         // TODO add your handling code here:
         try {
+            if (textFieldNome.getText().isEmpty() || textFieldValor.getText().isEmpty() || textFieldDiasValidade.getText().isEmpty()) {
+                throw new NumberFormatException();
+            }
             String nome = textFieldNome.getText(); //Pegar o texto referente ao nome da comida
             double valor = Double.parseDouble(textFieldValor.getText()); //Pegar o texto referente ao valor
             int data = Integer.parseInt(textFieldDiasValidade.getText()); //Pegar a data referente aos dias
-            this.comida = new Comida(nome, valor, new Date(), data);
+            this.comida = new Comida(nome, valor, new Date(), data); // Cria um objeto Comida com os valores obtidos
+            if (principal != null) {// Se houver uma instância de Principal, adiciona a Comida à lista de Comidas e atualiza a tabela
+                principal.adicionarComida(comida);
+            }
             JOptionPane.showMessageDialog(null, "Comida adicionada com sucesso", "Adicionar comida", 1);
-        } catch (java.lang.NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Não foi possível adicionar comida, verifique os valores digitados", "Adicionar comida", 0);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Não foi possível adicionar comida, verifique os dados digitados", "Adicionar comida", JOptionPane.ERROR_MESSAGE);
         }
         this.dispose();
         this.setVisible(false);
+
     }//GEN-LAST:event_SalvarActionPerformed
+
+    public void atualizarTabelaComidas() {
+        DefaultTableModel model = (DefaultTableModel) jTableComidas.getModel();
+        model.setRowCount(0); // Remove todas as linhas da tabela
+        // Percorre a lista de Comidas e adiciona cada uma como uma nova linha da tabela
+        for (Comida comida : listaComidas) {
+            // Cria um array com os dados da Comida
+            Object[] rowData = {comida.getNome(), comida.getValor(), comida.getDataFabricacao(), comida.getDiasValidade()};
+            model.addRow(rowData); // Adiciona o array como uma nova linha da tabela
+        }
+    }
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
         // TODO add your handling code here:

@@ -33,7 +33,6 @@ public class Comida {
             return false;
         }
     }
-    
     //Getter e setter
     public String getNome() {
         return nome;
@@ -58,10 +57,5 @@ public class Comida {
     }
     public void setDiasValidade(int dias) {
         this.diasValidade = dias;
-    }
-    
-    @Override
-    public String toString() {
-        return "Produto: " + getNome() + " | Valor: " + getValor() + " | Data de validade: " + getDataFabricacao() + " | Dias de validade: " + getDiasValidade();
     }
 }
