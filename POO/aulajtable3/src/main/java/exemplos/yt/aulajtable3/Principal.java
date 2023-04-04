@@ -9,6 +9,8 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,6 +29,7 @@ public class Principal extends JFrame {
     private final JTextField txtNomeCliente;
     private final JTextField txtIdadeCliente;
     private final JTextField txtPesoCliente;
+    private final JComboBox jcbEscolaridadeCliente;
 
     private final JButton BotaoSalvarCliente;
 
@@ -41,6 +44,9 @@ public class Principal extends JFrame {
         labelNomeCliente = new JLabel("Nome");
         txtNomeCliente = new JTextField();
         txtNomeCliente.setPreferredSize(new Dimension(450, 25));
+        
+        String[] escolaridades = {".Escolaridade..", "Graduação", "Ensino Médio", "Ensino Fundamental"};
+                jcbEscolaridadeCliente = new JComboBox(escolaridades);
 
         labelIdadeCliente = new JLabel("Idade:");
         txtIdadeCliente = new JTextField();
@@ -49,6 +55,12 @@ public class Principal extends JFrame {
         labelPesoCliente = new JLabel("Peso:");
         txtPesoCliente = new JTextField();
         txtPesoCliente.setPreferredSize(new Dimension(100, 25));
+        
+        JLabel labelProdutos = new JLabel("Seleciona a categoria que você tem mais interesse");
+        
+        JCheckBox chkLivros = new JCheckBox("Livros");
+        JCheckBox chkCozinha = new JCheckBox("Cozinha");
+        JCheckBox chkEletronicos = new JCheckBox("Eletronicos");
 
         BotaoSalvarCliente = new JButton("Salvar");
 
@@ -59,20 +71,43 @@ public class Principal extends JFrame {
                 String nome = txtNomeCliente.getText();
                 int idade = Integer.parseInt(txtIdadeCliente.getText());
                 double peso = Double.parseDouble(txtPesoCliente.getText());
+                String escolaridadeSelecionada = (String) jcbEscolaridadeCliente.getSelectedItem();
                 
-                JOptionPane.showMessageDialog(null, "DADOS DO CLIENTE \n Nome: " + nome + "\n Idade: " + idade + "\n Peso: " + peso);
+                //Checkbox selecionados ou nao
+                boolean livros = chkLivros.isSelected();
+                boolean cozinha = chkCozinha.isSelected();
+                boolean eletronicos = chkEletronicos.isSelected();
+                
+                JOptionPane.showMessageDialog(null, "DADOS DO CLIENTE "
+                        + "\n Nome: " + nome 
+                        + "\n Idade: " + idade 
+                        + "\n Peso: " + peso 
+                        + "\n Escolaridade " 
+                        + escolaridadeSelecionada 
+                        + "\n\n PRODUTOS DE INTERESSE" 
+                        + "\n Livros: " + livros 
+                        + "\n Cozinha: " + (chkCozinha.isSelected() ? "sim" : "Não" )
+                        + "\n Eletronicos: " + eletronicos);
                 JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso", "Salvar", 1);
             }
         });
 
         this.add(labelNomeCliente);
         this.add(txtNomeCliente);
+        
+        this.add(jcbEscolaridadeCliente);
 
         this.add(labelIdadeCliente);
         this.add(txtIdadeCliente);
         
         this.add(labelPesoCliente);
         this.add(txtPesoCliente);
+        
+        this.add(labelProdutos);
+        
+        this.add(chkLivros);
+        this.add(chkCozinha);
+        this.add(chkEletronicos);
 
         this.add(BotaoSalvarCliente);
 
