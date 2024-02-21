@@ -1,9 +1,57 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Others
 .DS_Store
-/POO/POOUAM/target/
-/POO/U4pooEbook/target/
-/poo/Produtos/target/
-/poo/implementacao2/target/
-/poo/Aulajtable/target/
-/poo/Aulajtable2/target/
-/poo/aulajtable3/target/
-/poo/CadastroVeiculos/target/
+Dwarf.iml
+.shortcuts
+.dwarf
+.git_cache
+.cache
+.sessions
+tools
+.decompile
+.tmp
+*.patch
+linter.py
+profiler.py
+*.yml
+info.plist
+*.dSYM
+output
+launch.json
+
+
+
+### Code ###
+.vscode/
